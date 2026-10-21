@@ -1,0 +1,267 @@
+{
+  "config_version": 5,
+  "platform_settings": {
+    "unique_session": false,
+    "rate_limit": {
+      "time": 60,
+      "count": 30,
+      "strategy": "stall"
+    },
+    "reply_prefix": "",
+    "forward_threshold": 1500,
+    "enable_id_white_list": true,
+    "id_whitelist": [],
+    "id_whitelist_log": true,
+    "wl_ignore_admin_on_group": true,
+    "wl_ignore_admin_on_friend": true,
+    "reply_with_mention": false,
+    "reply_with_quote": false,
+    "path_mapping": [],
+    "segmented_reply": {
+      "enable": true,
+      "only_llm_result": true,
+      "interval_method": "random",
+      "interval": "1.5,3.5",
+      "log_base": 2.6,
+      "words_count_threshold": 150,
+      "split_mode": "regex",
+      "regex": "[^\\n]+",
+      "split_words": [
+        "。",
+        "？",
+        "！",
+        "~",
+        "…"
+      ],
+      "content_cleanup_rule": ""
+    },
+    "no_permission_reply": true,
+    "empty_mention_waiting": false,
+    "empty_mention_waiting_need_reply": true,
+    "friend_message_needs_wake_prefix": false,
+    "ignore_bot_self_message": false,
+    "ignore_at_all": false
+  },
+  "provider_sources": [
+    {
+      "provider": "deepseek",
+      "type": "openai_chat_completion",
+      "provider_type": "chat_completion",
+      "key": [
+        "<API_KEY>"
+      ],
+      "api_base": "https://api.deepseek.com",
+      "timeout": 120,
+      "proxy": "",
+      "custom_headers": {},
+      "id": "deepseek",
+      "enable": true
+    }
+  ],
+  "provider": [
+    {
+      "id": "deepseek/deepseek-flash",
+      "enable": true,
+      "provider_source_id": "deepseek",
+      "model": "deepseek-flash",
+      "modalities": [
+        "text",
+        "tool_use"
+      ],
+      "custom_extra_body": {
+        "thinking": {
+          "type": "disabled"
+        }
+      },
+      "max_context_tokens": 1000000
+    },
+    {
+      "id": "deepseek/deepseek-vision",
+      "enable": true,
+      "provider_source_id": "deepseek",
+      "model": "deepseek-flash",
+      "modalities": [
+        "text",
+        "image",
+        "tool_use"
+      ],
+      "custom_extra_body": {
+        "thinking": {
+          "type": "disabled"
+        }
+      },
+      "max_context_tokens": 1000000
+    },
+    {
+      "id": "sensevoice-local",
+      "provider": "sensevoice",
+      "type": "sensevoice_stt_selfhost",
+      "provider_type": "speech_to_text",
+      "enable": true,
+      "stt_model": "<INSTALL_ROOT>/runtime/models/SenseVoiceSmall-onnx",
+      "is_emotion": false
+    },
+    {
+      "id": "whale-local-embedding",
+      "type": "whale_local_embedding",
+      "provider_type": "embedding",
+      "enable": true,
+      "model_dir": "<INSTALL_ROOT>/runtime/models/bge-small-zh-v1.5",
+      "model": "bge-small-zh-v1.5"
+    }
+  ],
+  "provider_settings": {
+    "enable": true,
+    "default_image_caption_provider_id": "deepseek/deepseek-vision",
+    "image_caption_prompt": "Please describe the image using Chinese.",
+    "provider_pool": [
+      "*"
+    ],
+    "wake_prefix": "",
+    "web_search": true,
+    "websearch_provider": "deepseek",
+    "websearch_tavily_key": [],
+    "websearch_bocha_key": [],
+    "websearch_brave_key": [],
+    "websearch_baidu_app_builder_key": "",
+    "websearch_firecrawl_key": [],
+    "websearch_exa_key": [],
+    "websearch_anysearch_key": [],
+    "websearch_deepseek_key": "<API_KEY>",
+    "websearch_serpapi_key": [],
+    "web_search_link": false,
+    "display_reasoning_text": false,
+    "identifier": true,
+    "group_name_display": true,
+    "datetime_system_prompt": true,
+    "persona_pool": [
+      "*"
+    ],
+    "prompt_prefix": "{{prompt}}",
+    "streaming_response": false,
+    "show_tool_use_status": false,
+    "show_tool_call_result": false,
+    "buffer_intermediate_messages": false,
+    "max_quoted_fallback_images": 20,
+    "quoted_message_parser": {
+      "max_component_chain_depth": 4,
+      "max_forward_node_depth": 6,
+      "max_forward_fetch": 32,
+      "warn_on_action_failure": false
+    },
+    "unsupported_streaming_strategy": "realtime_segmenting",
+    "reachability_check": false,
+    "file_extract": {
+      "enable": false,
+      "provider": "moonshotai",
+      "moonshotai_api_key": ""
+    },
+    "proactive_capability": {
+      "add_cron_tools": true
+    },
+    "computer_use_runtime": "none",
+    "computer_use_local_permissions": {
+      "member": {
+        "allow_execution": false,
+        "allow_network": false,
+        "filesystem_scope": "workspace"
+      },
+      "admin": {
+        "allow_execution": true,
+        "allow_network": true,
+        "filesystem_scope": "host"
+      }
+    },
+    "computer_use_require_admin": true,
+    "sandbox": {
+      "booter": "shipyard_neo",
+      "shipyard_endpoint": "",
+      "shipyard_access_token": "",
+      "shipyard_ttl": 3600,
+      "shipyard_max_sessions": 10,
+      "shipyard_neo_endpoint": "",
+      "shipyard_neo_access_token": "",
+      "shipyard_neo_profile": "python-default",
+      "shipyard_neo_ttl": 3600,
+      "cua_image": "linux",
+      "cua_os_type": "linux",
+      "cua_idle_timeout": 0,
+      "cua_telemetry_enabled": false,
+      "cua_local": true,
+      "cua_api_key": ""
+    },
+    "image_compress_options": {
+      "max_size": 1280
+    }
+  },
+  "agent_runner": {
+    "runner_type": "local",
+    "config": {
+      "model": {
+        "provider_id": "deepseek/deepseek-flash",
+        "fallback_provider_ids": [],
+        "request_max_retries": 5
+      },
+      "persona": {
+        "persona_id": "大肥鱼DeepSeek",
+        "safety_mode": true,
+        "safety_mode_strategy": "system_prompt"
+      },
+      "compression": {
+        "max_turns": -1,
+        "trim_turns": 1,
+        "overflow_strategy": "llm_compress",
+        "instruction": "",
+        "keep_recent_ratio": 0.15,
+        "provider_id": "",
+        "fallback_max_tokens": 128000
+      },
+      "misc": {
+        "max_steps": 128,
+        "tool_schema_mode": "full",
+        "tool_call_timeout": 120,
+        "sanitize_context_by_modalities": false
+      }
+    }
+  },
+  "provider_stt_settings": {
+    "enable": true,
+    "provider_id": "sensevoice-local"
+  },
+  "provider_tts_settings": {
+    "enable": false,
+    "provider_id": "",
+    "dual_output": false,
+    "use_file_service": false,
+    "trigger_probability": 1.0
+  },
+  "admins_id": [
+    "10002"
+  ],
+  "platform": [
+    {
+      "id": "qq-napcat",
+      "type": "aiocqhttp",
+      "enable": true,
+      "name": "default",
+      "ws_reverse_host": "127.0.0.1",
+      "ws_reverse_port": 6199,
+      "ws_reverse_token": ""
+    }
+  ],
+  "wake_prefix": [
+    "/"
+  ],
+  "persona": [],
+  "timezone": "Asia/Shanghai",
+  "disable_metrics": false,
+  "dashboard": {
+    "enable": true,
+    "host": "127.0.0.1",
+    "port": 6185,
+    "username": "admin",
+    "password": "",
+    "jwt_secret": ""
+  },
+  "http_proxy": ""
+}

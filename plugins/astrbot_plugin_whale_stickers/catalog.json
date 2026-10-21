@@ -1,0 +1,596 @@
+[
+  {
+    "id": "w001",
+    "file": "assets/w001.png",
+    "name": "别催",
+    "tag": "angry",
+    "pack": "maid-emoji",
+    "sha256": "230b8c9dd3cf06319bea1f9e073c8e375e763efa64db5e23d43a66365b066eee",
+    "description": "催促暂停：皱眉举手，提醒对方别催。"
+  },
+  {
+    "id": "w002",
+    "file": "assets/w002.png",
+    "name": "别搞我",
+    "tag": "angry",
+    "pack": "maid-emoji",
+    "sha256": "ec3863d3f114eae4bbcda2df6165aa09150c2dc8daec9d154374a327821b22a8",
+    "description": "不满被捉弄，双手攥紧，要求别继续整活。"
+  },
+  {
+    "id": "w003",
+    "file": "assets/w003.png",
+    "name": "黑化",
+    "tag": "angry",
+    "pack": "maid-emoji",
+    "sha256": "a92b156cf2b882d536c490b7636f7b57ac8658cee60b4e292cdb412e1e9a2372",
+    "description": "脸色发暗、眼神变凶，玩笑式黑化。"
+  },
+  {
+    "id": "w004",
+    "file": "assets/w004.png",
+    "name": "就这",
+    "tag": "angry",
+    "pack": "maid-emoji",
+    "sha256": "e2dadb5a9aff7d9c3af627a2267327197a588ace6751e663c3f9bc6248c1071a",
+    "description": "歪头露出轻视神情，表示这点程度还不够。"
+  },
+  {
+    "id": "w005",
+    "file": "assets/w005.png",
+    "name": "拒绝",
+    "tag": "angry",
+    "pack": "maid-emoji",
+    "sha256": "17f71cfb7898d5b77823b9b7be31e27e9ebe4e823ef0c38757b042e8c00fe7a5",
+    "description": "做出拒绝姿态，明确不接受。"
+  },
+  {
+    "id": "w006",
+    "file": "assets/w006.png",
+    "name": "懒得理你",
+    "tag": "angry",
+    "pack": "maid-emoji",
+    "sha256": "7828e12746aa9b4d16072485576a52e3c4ccbb2f29341bd062bf845544fd39e3",
+    "description": "侧脸闭眼不理人，表示懒得回应。"
+  },
+  {
+    "id": "w007",
+    "file": "assets/w007.png",
+    "name": "劣等模型",
+    "tag": "angry",
+    "pack": "maid-emoji",
+    "sha256": "541c973083a6de207f0288e0e0c9a0451ddd1959a7f4dac6805e112c3e9a392f",
+    "description": "指着对方嘲讽模型水平，适合熟人间较劲。"
+  },
+  {
+    "id": "w008",
+    "file": "assets/w008.png",
+    "name": "切",
+    "tag": "angry",
+    "pack": "maid-emoji",
+    "sha256": "18336e48c1242f4a0d326ce47f535677ddd8eb123cbcf0f187840c9d78900b45",
+    "description": "双手抱胸露出不屑，简短反驳。"
+  },
+  {
+    "id": "w009",
+    "file": "assets/w009.png",
+    "name": "生气",
+    "tag": "angry",
+    "pack": "maid-emoji",
+    "sha256": "3c330b5e17dfb588fa4b137e03d78586a57c8b0383cf83174fce33bd2e63c841",
+    "description": "气鼓鼓地瞪人，表示被惹生气。"
+  },
+  {
+    "id": "w010",
+    "file": "assets/w010.png",
+    "name": "看看剩余价值",
+    "tag": "angry",
+    "pack": "maid-emoji",
+    "sha256": "665e204bb1ddc79aad467cad3248ee7c0d53466cb4c0196cd126d0acfc669fcc",
+    "description": "戴礼帽看金币，玩笑式盘算还能榨出多少价值。"
+  },
+  {
+    "id": "w011",
+    "file": "assets/w011.png",
+    "name": "原来是小瘪三",
+    "tag": "angry",
+    "pack": "maid-emoji",
+    "sha256": "2ab760572e02a41fa44a6787438eda4eb864cd127bac541aa8083cea24c79e4d",
+    "description": "摊开手嘲笑对方，适合轻度损友反击。"
+  },
+  {
+    "id": "w012",
+    "file": "assets/w012.png",
+    "name": "眩晕",
+    "tag": "confused",
+    "pack": "maid-emoji",
+    "sha256": "2ce255926ee357fa6e38d80ea7a71aa61eab0226ec5cca3eeb7f7cfc9ab2e7fa",
+    "description": "晕乎乎地摇晃，表示脑子转不过来。"
+  },
+  {
+    "id": "w013",
+    "file": "assets/w013.png",
+    "name": "已读乱回",
+    "tag": "confused",
+    "pack": "maid-emoji",
+    "sha256": "0b07970b1f4d700ce3859abd1073ba86d7213825770689b31b29283f46c11d7c",
+    "description": "神游着答话，用来承认自己没接上内容。"
+  },
+  {
+    "id": "w014",
+    "file": "assets/w014.png",
+    "name": "怎么回事",
+    "tag": "confused",
+    "pack": "maid-emoji",
+    "sha256": "348e540b1d4ce8f91003f4415423e6cdd841724e703f7ce13cabf06e028eb701",
+    "description": "头顶问号、伸手疑惑，询问刚才发生什么。"
+  },
+  {
+    "id": "w015",
+    "file": "assets/w015.png",
+    "name": "吃瓜",
+    "tag": "daily",
+    "pack": "maid-emoji",
+    "sha256": "a2a507cd6db41f55fceeceaffc0b2a6068b6cc38e26cd5947bfbbb4c59c50614",
+    "description": "捧着西瓜围观热闹，适合旁观争论。"
+  },
+  {
+    "id": "w016",
+    "file": "assets/w016.png",
+    "name": "打扫",
+    "tag": "daily",
+    "pack": "maid-emoji",
+    "sha256": "a0083cf1c2821759554d627817300b70516f29ff7ae5af6d32584b6c7c19bd53",
+    "description": "拿扫把做清洁，表达开始收拾。"
+  },
+  {
+    "id": "w017",
+    "file": "assets/w017.png",
+    "name": "喝可乐",
+    "tag": "daily",
+    "pack": "maid-emoji",
+    "sha256": "b05d79055b9cfa7197e0f70ff81174e7a44ddaa8898941c708b97044df5cf030",
+    "description": "抱着饮料开心喝，表现放松休息。"
+  },
+  {
+    "id": "w018",
+    "file": "assets/w018.png",
+    "name": "加班中",
+    "tag": "daily",
+    "pack": "maid-emoji",
+    "sha256": "21a9b533e588315d207ce1837d76d55d65537660c4669fe75e786cc6906e99fa",
+    "description": "坐在桌前工作，表示仍在加班。"
+  },
+  {
+    "id": "w019",
+    "file": "assets/w019.png",
+    "name": "开始工作",
+    "tag": "daily",
+    "pack": "maid-emoji",
+    "sha256": "0e12370f193d6e2e3efab41d0537b55c0debbce8109fa66c932e080b64a085f9",
+    "description": "精神饱满地准备开工，回应任务开始。"
+  },
+  {
+    "id": "w020",
+    "file": "assets/w020.png",
+    "name": "溜了",
+    "tag": "daily",
+    "pack": "maid-emoji",
+    "sha256": "1e4adc5cef3cc1e43942b7a9b921d1ffb9a2cbc1d1e5b08378b5a5cbf6747f22",
+    "description": "转身快速离开，表示先走一步。"
+  },
+  {
+    "id": "w021",
+    "file": "assets/w021.png",
+    "name": "马上到",
+    "tag": "daily",
+    "pack": "maid-emoji",
+    "sha256": "8fd1c92299e3f86e10413d048ac9bf9b618ab4daeac9d645cbf8a8356da7c2b8",
+    "description": "飞快赶来，回应马上到场。"
+  },
+  {
+    "id": "w022",
+    "file": "assets/w022.png",
+    "name": "认真记录",
+    "tag": "daily",
+    "pack": "maid-emoji",
+    "sha256": "b284950ace415e2e32c74ffe740acb191944a5791d0a68246c8bc17df2e1700c",
+    "description": "抱笔记本写字，表示认真记下信息。"
+  },
+  {
+    "id": "w023",
+    "file": "assets/w023.png",
+    "name": "收到",
+    "tag": "daily",
+    "pack": "maid-emoji",
+    "sha256": "e943304724ba2bd23f24074872575c2347860bb51029c6305a6ce6fa9992ac2b",
+    "description": "站好敬礼，表示已经收到。"
+  },
+  {
+    "id": "w024",
+    "file": "assets/w024.png",
+    "name": "躺平",
+    "tag": "daily",
+    "pack": "maid-emoji",
+    "sha256": "70d105bc780db845d56876b54c8dd58fa3db5f92af042f921794e4e9ccf05dfd",
+    "description": "倒下摊平，表示暂时摆烂。"
+  },
+  {
+    "id": "w025",
+    "file": "assets/w025.png",
+    "name": "晚安",
+    "tag": "daily",
+    "pack": "maid-emoji",
+    "sha256": "7449f157bbfe1580d94460bf1ce5713fb839e3aeefe3fa2e3a6469ac9d3c33d7",
+    "description": "躺进被窝准备睡觉，适合道晚安。"
+  },
+  {
+    "id": "w026",
+    "file": "assets/w026.png",
+    "name": "在吗",
+    "tag": "daily",
+    "pack": "maid-emoji",
+    "sha256": "8af6d6a3a75eb67eb1ef8db3d31315442b0dcf47cc4a27786246825230e079d1",
+    "description": "探头询问是否在线，适合找人聊天。"
+  },
+  {
+    "id": "w027",
+    "file": "assets/w027.png",
+    "name": "大成功",
+    "tag": "happy",
+    "pack": "maid-emoji",
+    "sha256": "d8555598a0804421ab2e9692953b1901fdc2406562f170bc8ebdd00c0489c732",
+    "description": "举起双手庆祝成功，适合事情办成。"
+  },
+  {
+    "id": "w028",
+    "file": "assets/w028.png",
+    "name": "开心",
+    "tag": "happy",
+    "pack": "maid-emoji",
+    "sha256": "445ca269cd2b78d4188dc8cc3943c15767749950b44ecb930c50daa535c3cbb6",
+    "description": "闭眼大笑，表达单纯开心。"
+  },
+  {
+    "id": "w029",
+    "file": "assets/w029.png",
+    "name": "我来了",
+    "tag": "happy",
+    "pack": "maid-emoji",
+    "sha256": "4f4f5e74414f94e020f43133ff67b7c24bd73c2232e67cce01d0f861989b44c1",
+    "description": "举手报到，表示自己来了。"
+  },
+  {
+    "id": "w030",
+    "file": "assets/w030.png",
+    "name": "笑死",
+    "tag": "happy",
+    "pack": "maid-emoji",
+    "sha256": "1acb59187af04d8674b1df98bffcbe046cc03263a4190821e1e759f1141dad02",
+    "description": "笑得弯腰，回应特别好笑的事。"
+  },
+  {
+    "id": "w031",
+    "file": "assets/w031.png",
+    "name": "谢谢",
+    "tag": "happy",
+    "pack": "maid-emoji",
+    "sha256": "7ef8ac84c00a88580c6ad91ca20e20d95c5dfa18f7b73fed7dc585a344001c79",
+    "description": "脸红合手致谢，回应关心或帮助。"
+  },
+  {
+    "id": "w032",
+    "file": "assets/w032.png",
+    "name": "星星眼",
+    "tag": "happy",
+    "pack": "maid-emoji",
+    "sha256": "176483a12a1d21ce405d08ee9189d4fc234089e688893df9d2e7815847fbe8d6",
+    "description": "眼睛发亮，表达期待和羡慕。"
+  },
+  {
+    "id": "w033",
+    "file": "assets/w033.png",
+    "name": "心花怒放",
+    "tag": "happy",
+    "pack": "maid-emoji",
+    "sha256": "d0380b0c823b9af91bfe4475767a2013ef1b056104f4c96ef81dee53817dedd9",
+    "description": "周围飘着花和爱心，表达被夸后的高兴。"
+  },
+  {
+    "id": "w034",
+    "file": "assets/w034.png",
+    "name": "抱歉",
+    "tag": "sad",
+    "pack": "maid-emoji",
+    "sha256": "c61282896494a6f5ba933c168fd32c07ec88870e7136de0c6efbb0502b7bbf0a",
+    "description": "低头道歉，承认给对方添麻烦。"
+  },
+  {
+    "id": "w035",
+    "file": "assets/w035.png",
+    "name": "蹲墙角",
+    "tag": "sad",
+    "pack": "maid-emoji",
+    "sha256": "202ee76d42e4509cd5f2d9999996bb0b2dec573848250962cf111cd15f0b6ab3",
+    "description": "蹲在角落失落，表达被冷落。"
+  },
+  {
+    "id": "w036",
+    "file": "assets/w036.png",
+    "name": "好辛苦",
+    "tag": "sad",
+    "pack": "maid-emoji",
+    "sha256": "4a8aee2510414bcbd77e901e523df7a83f7d20a484590818eb6e83c8f48544de",
+    "description": "疲惫皱眉，抱怨做事辛苦。"
+  },
+  {
+    "id": "w037",
+    "file": "assets/w037.png",
+    "name": "画圈圈",
+    "tag": "sad",
+    "pack": "maid-emoji",
+    "sha256": "1e84b5dc219d7d57d3c74128a04554ebccabbe2f9fe25e5ffbf1c92fc4762f3c",
+    "description": "坐着低头画圈圈，表达郁闷和失落。"
+  },
+  {
+    "id": "w038",
+    "file": "assets/w038.png",
+    "name": "救命",
+    "tag": "sad",
+    "pack": "maid-emoji",
+    "sha256": "1f65cdc984ffbfa35ca6f89a3487425749d9ef51cfbffa72b0c975ec986d487d",
+    "description": "惊慌举手求救，表达顶不住了。"
+  },
+  {
+    "id": "w039",
+    "file": "assets/w039.png",
+    "name": "累死了",
+    "tag": "sad",
+    "pack": "maid-emoji",
+    "sha256": "f118d10b3009a461f888a06d9608796a4069d9ad49adb1673f3d25e72ad67691",
+    "description": "趴倒喘气，表示累得不想动。"
+  },
+  {
+    "id": "w040",
+    "file": "assets/w040.png",
+    "name": "破防了",
+    "tag": "sad",
+    "pack": "maid-emoji",
+    "sha256": "70d1ad951f48868a472123e02566b135acad30f4b2a2fc685e3ee89c4915525a",
+    "description": "攥拳掉泪，表示被戳到痛处。"
+  },
+  {
+    "id": "w041",
+    "file": "assets/w041.png",
+    "name": "完蛋了",
+    "tag": "sad",
+    "pack": "maid-emoji",
+    "sha256": "6fc6b21dbd57912bef14898ae87c4ea3c2a302d61a5de4925487c913f83cff9e",
+    "description": "慌张大喊完蛋，回应事情失控。"
+  },
+  {
+    "id": "w042",
+    "file": "assets/w042.png",
+    "name": "委屈",
+    "tag": "sad",
+    "pack": "maid-emoji",
+    "sha256": "4b66d325dd71a75abda68fbc56c4adc5510f6d313dc44719faa364cc9506acf2",
+    "description": "含泪抿嘴，表达受委屈。"
+  },
+  {
+    "id": "w043",
+    "file": "assets/w043.png",
+    "name": "我裂开了",
+    "tag": "sad",
+    "pack": "maid-emoji",
+    "sha256": "89ab0a03c0f6e5cf357515c1e9d8a62f03366079adbc4e3d0a54a4411f1926fd",
+    "description": "神情僵住，表达震惊到裂开。"
+  },
+  {
+    "id": "w044",
+    "file": "assets/w044.png",
+    "name": "无语",
+    "tag": "sad",
+    "pack": "maid-emoji",
+    "sha256": "e9d02fa0525aaac73cf8d6dfb8fd2189729f270b12b214d9fb6a8093aec52644",
+    "description": "板着脸不说话，表达无语。"
+  },
+  {
+    "id": "w045",
+    "file": "assets/w045.png",
+    "name": "不要嘛",
+    "tag": "shy",
+    "pack": "maid-emoji",
+    "sha256": "aac02797107f285386cb7f429b570bbdb0df59206b33e4a1592e7588f0115999",
+    "description": "扭身撒娇拒绝，不愿接受安排。"
+  },
+  {
+    "id": "w046",
+    "file": "assets/w046.png",
+    "name": "害羞",
+    "tag": "shy",
+    "pack": "maid-emoji",
+    "sha256": "d0692da54f3c2f644c575b65b55cad0df9f048844b9e1cc7b8f98724059e51d1",
+    "description": "脸红遮嘴，表达害羞。"
+  },
+  {
+    "id": "w047",
+    "file": "assets/w047.png",
+    "name": "小鹿乱撞",
+    "tag": "shy",
+    "pack": "maid-emoji",
+    "sha256": "2e19e8c0b00a5bee25704624195e1eb41a6535cf3a8979824984c2f02e983e9e",
+    "description": "脸红捂胸口，表达心动。"
+  },
+  {
+    "id": "w048",
+    "file": "assets/w048.png",
+    "name": "别以为我会原谅你",
+    "tag": "angry",
+    "pack": "pack-mvc2p5cv",
+    "sha256": "46aaded70cbbb387138c902ad85f093737ce63545956804f0a2e3c1c2318347b",
+    "description": "脸红生气并说不会原谅，适合嘴硬式闹别扭。"
+  },
+  {
+    "id": "w049",
+    "file": "assets/w049.png",
+    "name": "别想太多啦",
+    "tag": "angry",
+    "pack": "pack-mvc2p5cv",
+    "sha256": "385c6af9b6ead7ccda1f1d78c1bdefb793428312015c1b4a07cc551fde184ba4",
+    "description": "别开目光让人别多想，适合被戳中心事后否认。"
+  },
+  {
+    "id": "w050",
+    "file": "assets/w050.png",
+    "name": "盯着屏幕一起思考",
+    "tag": "confused",
+    "pack": "pack-mvc2p5cv",
+    "sha256": "63572374d9adc8176d3945a9f42fea4f5e075b6c72cb7c5b7fa550c360c38d21",
+    "description": "背对镜头盯着电脑，表达认真思考。"
+  },
+  {
+    "id": "w051",
+    "file": "assets/w051.png",
+    "name": "抱鲸鱼喊好耶",
+    "tag": "happy",
+    "pack": "pack-mvc2p5cv",
+    "sha256": "42e2d03134186a9381b7d6fb427a902c9f73f5643eb6436e99e5459b44c7791d",
+    "description": "抱住蓝鲸高兴欢呼，庆祝好消息。"
+  },
+  {
+    "id": "w052",
+    "file": "assets/w052.png",
+    "name": "眯眼坏笑嘿嘿",
+    "tag": "happy",
+    "pack": "pack-mvc2p5cv",
+    "sha256": "51f00fc709b8d0930c171456dfa1c1c8e364eebc2f02e973f78c28d0bc1869c9",
+    "description": "半眯眼露出坏笑，适合暗自得意或准备补刀。"
+  },
+  {
+    "id": "w053",
+    "file": "assets/w053.png",
+    "name": "举牌为你加油",
+    "tag": "happy",
+    "pack": "pack-mvc2p5cv",
+    "sha256": "aed55f6bc6abc49b1a118d9fdb88063b20462730e0d2dd38eb664593dfc15d80",
+    "description": "举着加油牌鼓励对方，表达支持。"
+  },
+  {
+    "id": "w054",
+    "file": "assets/w054.png",
+    "name": "没有任务吃白饭好幸福",
+    "tag": "happy",
+    "pack": "pack-mvc2p5cv",
+    "sha256": "269971ed1635b81b4ab41dc68af7d9d58f346139dac4f131712d6eb151a39312",
+    "description": "端着饭碗闭眼满足，庆幸没有工作可以吃饭。"
+  },
+  {
+    "id": "w055",
+    "file": "assets/w055.png",
+    "name": "戴墨镜说开心最重要",
+    "tag": "happy",
+    "pack": "pack-mvc2p5cv",
+    "sha256": "0125bbf78fdbb5cdeefdff0e00c6738b00de15e1836bcb7fb458a860833c76cb",
+    "description": "戴墨镜得意张嘴，表示开心才最重要。"
+  },
+  {
+    "id": "w056",
+    "file": "assets/w056.png",
+    "name": "捧饭碗眯眼幸福",
+    "tag": "happy",
+    "pack": "pack-mvc2p5cv",
+    "sha256": "3179cba9723028072b33d32582069bf0ea9064b66e69bc48ba0aa4ce63710b99",
+    "description": "捧饭碗安静享受，表达吃饭的幸福。"
+  },
+  {
+    "id": "w057",
+    "file": "assets/w057.png",
+    "name": "脸红嘴硬不要调教",
+    "tag": "shy",
+    "pack": "pack-mvc2p5cv",
+    "sha256": "3c50800516ecfb3923f14d7fd82dd9124d44e3e64c311f33711e6274aaf168ef",
+    "description": "脸红发恼地阻止调侃，适合玩笑反抗。"
+  },
+  {
+    "id": "w058",
+    "file": "assets/w058.png",
+    "name": "脸红否认可爱",
+    "tag": "shy",
+    "pack": "pack-mvc2p5cv",
+    "sha256": "8e2aa16de5c3eb3c7a0306a623811e167f7b03a5df8334d9d0612502af525d0d",
+    "description": "脸红却否认自己可爱，回应夸奖时嘴硬。"
+  },
+  {
+    "id": "w059",
+    "file": "assets/w059.png",
+    "name": "趴枕头说好困",
+    "tag": "daily",
+    "pack": "pack-mvc2p5cv",
+    "sha256": "e60431fda4167f84ff8bc1abd40b94546df66efbfde5173e354ddccd48f0453d",
+    "description": "趴在枕头上困得睁不开眼，表示想睡觉。"
+  },
+  {
+    "id": "w060",
+    "file": "assets/w060.png",
+    "name": "盖被睡觉道晚安",
+    "tag": "daily",
+    "pack": "pack-mvc2p5cv",
+    "sha256": "9c5d353aa742b1033dd0d655193efe709401c5a29d497712b859a95cec4af4e7",
+    "description": "盖好被子道晚安，结束当晚聊天。"
+  },
+  {
+    "id": "w061",
+    "file": "assets/w061.png",
+    "name": "半眯眼反问你在说什么",
+    "tag": "sad",
+    "pack": "pack-mvc2p5cv",
+    "sha256": "619bbafe1e27e5fe65583eaa54e6e402863a5a299a062c96e0dcd21cdbb909f4",
+    "description": "半眯眼抬手反问，表示没听明白对方在说什么。"
+  },
+  {
+    "id": "w062",
+    "file": "assets/w062.png",
+    "name": "躺平算了去吃白饭",
+    "tag": "daily",
+    "pack": "pack-mvc2p5cv",
+    "sha256": "bbab6e2b412ab0687dcc2db5c5cc40838a93043a84af3a3cc4f98c5d26b9ca0e",
+    "description": "抱着饭碗躺平，说算了先去吃饭。"
+  },
+  {
+    "id": "w063",
+    "file": "assets/w063.png",
+    "name": "端饭碗辩解认真工作",
+    "tag": "daily",
+    "pack": "pack-mvc2p5cv",
+    "sha256": "29810299468ca50095d0d654015ad55966c0913a577ebbe636af18b5bd728fe7",
+    "description": "端饭碗替自己辩解，嘴硬声称没有偷懒。"
+  },
+  {
+    "id": "w064",
+    "file": "assets/w064.png",
+    "name": "我不懂但大受震撼",
+    "tag": "confused",
+    "pack": "pack-mvc2p5cv",
+    "sha256": "dbfc03bf98234fb2aaec7304acf9c5b4cff0ff4039de8148ba5546d223580bab",
+    "description": "举起双手震惊，承认没懂但大受冲击。"
+  },
+  {
+    "id": "w065",
+    "file": "assets/w065.png",
+    "name": "趴枕头不想努力了",
+    "tag": "daily",
+    "pack": "pack-mvc2p5cv",
+    "sha256": "d657a69c5dac8bb393596fbbb20aa245be12f885a709d9a403397b794fcda946",
+    "description": "趴在枕头上放空，表示今天不想努力。"
+  },
+  {
+    "id": "w066",
+    "file": "assets/w066.png",
+    "name": "token来（伸手反击寿来）",
+    "tag": "daily",
+    "pack": "administrator-added",
+    "sha256": "fcf0ee87a93181ff9e8207d6b7e9afdcf4766ee17d9c296e3ef8a3c3fd6fa72d",
+    "description": "伸出双手索要token，适合反过来接群友“寿来”或“token来”的索要表情；不是询问API技术。"
+  }
+]

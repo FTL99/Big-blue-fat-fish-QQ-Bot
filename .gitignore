@@ -1,0 +1,26 @@
+# Installed services, credentials, conversations and generated test data stay outside this repository.
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+.local/
+runtime/
+data/
+.bot_runtime/
+outputs/
+work/
+backups/
+logs/
+__pycache__/
+*.py[cod]
+*.db
+*.db-*
+*.sqlite*
+*.log
+*.jsonl
+*.bak
+*.zip
+api-key.txt
+*login*.local.json
+deploy_state.json

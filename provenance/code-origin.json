@@ -1,0 +1,1405 @@
+{
+  "date": "2026-10-21",
+  "upstreams": [
+    {
+      "repo": "mtshang/make-your-qq-ai-group-member",
+      "license": "MIT"
+    },
+    {
+      "repo": "AstrBotDevs/AstrBot",
+      "version": "4.29.1",
+      "license": "AGPL-3.0",
+      "wheel_record_modified_python": []
+    },
+    {
+      "repo": "Him666233/astrbot_plugin_group_chat_plus",
+      "version": "V1.2.3.hotfix.2",
+      "license": "AGPL-3.0",
+      "modified": true
+    },
+    {
+      "repo": "lxfight-s-Astrbot-Plugins/astrbot_plugin_livingmemory",
+      "version": "2.6.1",
+      "license": "AGPL-3.0"
+    },
+    {
+      "repo": "anka-afk/astrbot_plugin_meme_manager",
+      "version": "5.1.0",
+      "commit": "42104fed0ee2644e6a7e246b48892b8dc7ee361b",
+      "license": "MIT",
+      "modified": true
+    }
+  ],
+  "production_source_files": [
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/CHANGELOG.md",
+      "production_sha256": "431685c6eccbd9173d1fb18511677dd3cd45afe535b5d8720f679107d5d9f0f8"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/LICENSE",
+      "production_sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/main.py",
+      "production_sha256": "e504a9b36c47d3aa6cddb99cd3f06f0d78105a0d9a8b9f4b0d305f654d21de62"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/metadata.yaml",
+      "production_sha256": "02fb64bef486828c6e171c4aceb4f99957917d549c0b439055f4a5359d679568"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/README.md",
+      "production_sha256": "1136f0b7b6eaf9a369fcad84ecf37cd6af7e03416af3817b4ae1062391c47d7a"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/requirements.txt",
+      "production_sha256": "09e842399707573333075631c0b8f59beb2a4443f4d6bfd51ad60a624ed5aa8b"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/_conf_schema.json",
+      "production_sha256": "2ff3b078d3a35408d51b87505c2e4fd4f889578db0fc6fafcd94c51be7e2b69a"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/docs/ARCHITECTURE.md",
+      "production_sha256": "d48097d36189923c5f153f3599028b0649470eec999a1d44830e623df6e51b9a"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/docs/CONFIG_REFERENCE.md",
+      "production_sha256": "fcaab9e57ea02c93c1d5a25ebc17656305a40e8707bc4fccd99bc24248e32868"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/docs/DESKTOP_COMPATIBILITY.md",
+      "production_sha256": "d2cc0e9924ed4cd39d2b729244be677de384313f5a0efaf2464e115b7e1ad344"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/docs/MESSAGE_WORKFLOW.md",
+      "production_sha256": "f8fa7ed7f67a0315987940fefc68a15f71e5b628700f0dc891bbafcae4e859f7"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/docs/PROJECT_STRUCTURE.md",
+      "production_sha256": "942d6d6e9dc77ed1e1ea16310e5f1e86ec1680fcb3495889ecc5e64d0a2e4f04"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/private_chat/private_chat_main.py",
+      "production_sha256": "90b33982d0305c866e9863d269d02931f75830a970427852d252db5a1c700caa"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/private_chat/README-WARNING.md",
+      "production_sha256": "15e9d2052be92a74670c74c6aef6bb27b74715e718325c5e3012d3c854fabe68"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/private_chat/__init__.py",
+      "production_sha256": "b8d9f0c4ba20abe89ac8a515536735f5bacabd78c77f2c255115e7925668f9da"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/tests/test_image_handler.py",
+      "production_sha256": "99417dfd9982c7b70ef137c95fcb9de7059bd364343acdc470488a0b42399955"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/tests/test_reply_chain_paths.py",
+      "production_sha256": "8d84edce07ccee98762216d8e7af3d6f7a5c2b9beb123c1e261df994abaa0087"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/ai_error_formatter.py",
+      "production_sha256": "71ce341e08612a6b8f287377b407ad82f28493269e8e59df25cf0c7c9ff1e8fc"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/ai_response_filter.py",
+      "production_sha256": "8908e933a813841c5662ea02f2bf36b68425f5f850d48716c0a0ebbcc6dda538"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/attention_manager.py",
+      "production_sha256": "341ce706407e26fac7897b76d7b02b9f03470777ca87a4383fb6e71fdb5fbdc5"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/content_filter.py",
+      "production_sha256": "ddc7991a78e97c8ccf8082b9650594e62e3b4c3e4b707f8a75ffd985eaabc283"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/context_manager.py",
+      "production_sha256": "23dbe3274f4e35d8024b02430caa93188ed11cf312f88d7557bddc7fd71e251c"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/cooldown_manager.py",
+      "production_sha256": "ca864d23f29e5eccd0c5b25324f8dcd750a3143ec675012e0bb55ef742cccfa9"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/decision_ai.py",
+      "production_sha256": "c1034bf052183cd5708ac49e30ab385beadce8db572c4b9e04078198fa211e27"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/deferred_images.py",
+      "production_sha256": "a71aa88cc7d79c013df440af482d702af3dc8c85cdd32de55995c68c98c22e17"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/emoji_detector.py",
+      "production_sha256": "3996e5eafdf2c9dfeec97f75f771421629926bde7a6438765683a624cb4aa823"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/forward_message_parser.py",
+      "production_sha256": "c902126949718ccaddf58917cc9888f499956419354aa2b798b649ba14f2f8a6"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/frequency_adjuster.py",
+      "production_sha256": "82c9a903a44f8d824dc4eed6a1eee8c5e08942eef8f7653d7448dd27295fe802"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/humanize_mode.py",
+      "production_sha256": "d05ba168481e42279ce271594d8da60d6ebf0d6d25c56cbb2cd58df89fef2ef0"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/image_description_cache.py",
+      "production_sha256": "a9af6e080145ce23b14a73632d2f3746b66e5b2dfea21a2a769fec79c66ee9ea"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/image_handler.py",
+      "production_sha256": "3ee6b742d6e948dbf9b0667206e2b07916bb5f9cc6915573a140ecb2c0f0b5d7"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/image_identity.py",
+      "production_sha256": "c0f8047c3ff33c8d378c20ac2bbb6f6e8cf13de7f4db1cd74becf506347f6a49"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/keyword_checker.py",
+      "production_sha256": "e9cca5f23eccb71356cdad7d4d84f183bb538689e5fc90510ba997b2c2ed9f78"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/memory_injector.py",
+      "production_sha256": "6ca235677bcfb941436dffd428de27e1a928866604a7108236215f9651945c7a"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/message_cache_manager.py",
+      "production_sha256": "4b6f92322df79eb1f44ad7aef9fd911625ece6991aeb9d95155b06681954e75e"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/message_cleaner.py",
+      "production_sha256": "49266890081fa3a25780bd38932a12e4ee3357941f20655a59d6152546f986cd"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/message_processor.py",
+      "production_sha256": "8eaab9ebc7522f134eb89d0e90421afe4de8109e89fc419c5d9e0a1d80e8b8dc"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/message_quality_scorer.py",
+      "production_sha256": "881f2a7cbf4ce1b6eced420513cf28ac890978783af80fb5838387675172b098"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/mood_tracker.py",
+      "production_sha256": "a6a6b10046e0d3e14c4ad05d9e5ddb6f2b8d3ff6c3d9687effa31874d70c7f89"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/platform_ltm_helper.py",
+      "production_sha256": "c7366a5e45efaa7d8f279af9fdb7241b939db0ad4cdbcb29ef36c2bfd35750e2"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/proactive_chat_manager.py",
+      "production_sha256": "7237e25b3db499faf9be841d772ed7ed6e509de4b6125afdc4035454ac8a1fa1"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/probability_manager.py",
+      "production_sha256": "d4dd03dccbdd6fc6e533257375cdaac5cc257a6d26ff367b22bd26a951a497c1"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/reply_chain_utils.py",
+      "production_sha256": "40d2ce7d428135b124e31d46e26c76cbe15c86a57919aab8b180bdb64ceab6e6"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/reply_density_manager.py",
+      "production_sha256": "6038913494c28e4f7085c0e4d2e9192d672453e5280c3b4b898c7cec9a5ae212"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/reply_handler.py",
+      "production_sha256": "27a7c664a9fad64563e9db621dcbe16ce94d131c5465bc8cde01de65548825e7"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/smart_concurrent_manager.py",
+      "production_sha256": "50b01028ed148f82b483747dfeb781269469b8b551b06ff4419954c4ab76ec0b"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/system_prompt_rewriter.py",
+      "production_sha256": "d90bd88b29216549ffbf9796d93bee0c34858df5e8ae323f3fd6fd9c787586be"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/time_period_manager.py",
+      "production_sha256": "0f6c828af6383eb935c4b0bacf2c4a81655cd97a2634f7460e2326e557622d06"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/tools_reminder.py",
+      "production_sha256": "a5412a5d65b9c806d51e57d5cd288a6039e1221f78516730190c8c0089f7667f"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/typing_simulator.py",
+      "production_sha256": "03c2244d70bbc742ec3b80d6e625581a1f3ad69b1f576f404840a3dc456a22bb"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/typo_generator.py",
+      "production_sha256": "2c3ca410c9f15c1dec977088bb48b4f7031de2d0d24c3d623f17ae5ef2739b08"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/welcome_message_parser.py",
+      "production_sha256": "dfd2fe74a158b2815f82de093a86c44ccc8314fba6bfcdacbaf977f8ee39ee19"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/_session_guard.py",
+      "production_sha256": "34d9582e5032059f882c92dfc9450bae4eb749a18bec033108c60f8f94267cea"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/utils/__init__.py",
+      "production_sha256": "eb35944aca10fd271942b4dbb58abad2b6d380922b0f371d2b59ec6cf86d9b39"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/web/auth.py",
+      "production_sha256": "da7018e3fe3316097035ebe9b1bac7944c74e276f69689e7bd2db10e0d346bb8"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/web/security.py",
+      "production_sha256": "0d85b5e94dbcc236c7a0a7b983b07a4f660d0e44905872a179373a65a7541fcb"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/web/server.py",
+      "production_sha256": "07643f510f140a5804d091a08760a601663d3437ebb59e91f9bbf578245ac9b1"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/web/__init__.py",
+      "production_sha256": "d3067bf2f886cb0bd669eb11ad740bdc6a6a18d816f1f12763eb43bc455f2c83"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/private_chat/private_chat_utils/private_chat_content_filter.py",
+      "production_sha256": "ddc7991a78e97c8ccf8082b9650594e62e3b4c3e4b707f8a75ffd985eaabc283"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/private_chat/private_chat_utils/private_chat_context_manager.py",
+      "production_sha256": "e09700ae0066cf1537fcc4eceac2f575cde4eceb1b0d651e829b6b61ca308738"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/private_chat/private_chat_utils/private_chat_emoji_detector.py",
+      "production_sha256": "3996e5eafdf2c9dfeec97f75f771421629926bde7a6438765683a624cb4aa823"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/private_chat/private_chat_utils/private_chat_forward_message_parser.py",
+      "production_sha256": "d6c9c1919edca3bd27e0e90d75f0781a75664a268372c215c966f9bafd53a877"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/private_chat/private_chat_utils/private_chat_image_description_cache.py",
+      "production_sha256": "f177d1d1fa7e371793ada72d5c07687859adfcfe5b1ae888bac27331106b9bff"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/private_chat/private_chat_utils/private_chat_image_handler.py",
+      "production_sha256": "11b56fd5b02592058dbfc215b104908aaf1c1c07defb8afc0e3ae94d71b74628"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/private_chat/private_chat_utils/private_chat_keyword_checker.py",
+      "production_sha256": "e9cca5f23eccb71356cdad7d4d84f183bb538689e5fc90510ba997b2c2ed9f78"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/private_chat/private_chat_utils/private_chat_memory_injector.py",
+      "production_sha256": "90df81250365bfe51611ef48b4fee2aa36fe4011a4dad79cb53f99c7df8723f2"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/private_chat/private_chat_utils/private_chat_message_cleaner.py",
+      "production_sha256": "3268e15dc67d60685eb2a26a514db7389cef2daafcbdda3c48c1fa436df32412"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/private_chat/private_chat_utils/private_chat_message_processor.py",
+      "production_sha256": "a6872d9adba3651352180ea670ac9d0da2cfead5a3b9e9be42a07eeb09bce257"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/private_chat/private_chat_utils/private_chat_mood_tracker.py",
+      "production_sha256": "a44e8a71b26e561f048e53d30ae71c17f5226d7ff9b7042df7e4ae21f92f7729"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/private_chat/private_chat_utils/private_chat_proactive_chat_manager.py",
+      "production_sha256": "1250ff5a825eff60f628d5f8fa276478f1dbe4f8a4185a1435d3863346f664c6"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/private_chat/private_chat_utils/private_chat_reply_handler.py",
+      "production_sha256": "ec206d4fdc2c2177969568f32dc3d452a02e75230b9b1340baed95c0ec2a288f"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/private_chat/private_chat_utils/private_chat_session_guard.py",
+      "production_sha256": "34d9582e5032059f882c92dfc9450bae4eb749a18bec033108c60f8f94267cea"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/private_chat/private_chat_utils/private_chat_time_period_manager.py",
+      "production_sha256": "0f6c828af6383eb935c4b0bacf2c4a81655cd97a2634f7460e2326e557622d06"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/private_chat/private_chat_utils/private_chat_tools_reminder.py",
+      "production_sha256": "8b81fded7450385bd3bd53c1f5b7426d417a81e7f3a9466f180756b98f9689ca"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/private_chat/private_chat_utils/private_chat_typing_simulator.py",
+      "production_sha256": "03c2244d70bbc742ec3b80d6e625581a1f3ad69b1f576f404840a3dc456a22bb"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/private_chat/private_chat_utils/private_chat_typo_generator.py",
+      "production_sha256": "2c3ca410c9f15c1dec977088bb48b4f7031de2d0d24c3d623f17ae5ef2739b08"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/private_chat/private_chat_utils/__init__.py",
+      "production_sha256": "83bca111556e4e2ae9ffecad43b7067f48b2a1011f0b778fb24e9f9a3ffa1e1f"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/web/templates/error.html",
+      "production_sha256": "229d9c1f7245c007a1824d852f8dd3cfc7ea4919419c6ca98ebf99ed01ce29ad"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/web/templates/login.html",
+      "production_sha256": "99bd2198adcfb94d66a0083aacea91969d5b54626e5b958c696a715d0f12365a"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/web/templates/panel.html",
+      "production_sha256": "321b76721fecc5abad92d4d057db535988c9604131c8562dc36f11d3b024b1d0"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/web/static/css/charts.css",
+      "production_sha256": "640bff5815e40307661cb745642792cc6fcfd6451b9990f7a86748044edc51e7"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/web/static/css/config-panel.css",
+      "production_sha256": "7304ab8c0b99f2bb493f46f9acc537f1ce0e2a054f4a1692284f95c3ae128641"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/web/static/css/login.css",
+      "production_sha256": "dca119858987f61b554c6cc1551ed60b92d35915a091f936a492aa2117f392cc"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/web/static/css/main.css",
+      "production_sha256": "a3dd9a4ab34809d9fd3f083cab6447022c14eb459519343c0194b85a564f1ae3"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/web/static/css/tech-tree.css",
+      "production_sha256": "376eda17426f8e0ce52ab6c907c1da67d1bcd3c83ed3da38ac7a091af681652a"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/web/static/js/api.js",
+      "production_sha256": "d0b1a7c80dfee2c9b320eb146714d3b91998185b0df6a79a9779abaae265d334"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/web/static/js/app.js",
+      "production_sha256": "804117ee5f5acdb7be915c58480600d54688013471b3398173fac0256bfbb77a"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/web/static/js/auth.js",
+      "production_sha256": "a26956d8b9e517f4272279709bebf620794108a9f70b2eccf669d194947eb0d0"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/web/static/js/bg-animation.js",
+      "production_sha256": "ea4baf46a866de3ac8c5329206564e2004854858b3c89a8b3de34c6e45de6480"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/web/static/js/charts.js",
+      "production_sha256": "34b6777835a710188bff9e724e218c3887fdbd1d4b0244d8abb0e82c70733afa"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/web/static/js/config-editor.js",
+      "production_sha256": "101247deb1de977467bd0903b4fe1835e77c7b51d6d7e2d4a17d81c9316a2801"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/web/static/js/flow-data.js",
+      "production_sha256": "0dc4d9014870f84e7caac0d295136e2ee1e5cec08527fe9ca8a400b5da49be6e"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/web/static/js/prompt-data.js",
+      "production_sha256": "adeab8ee6b768f96198ef636600ae267d528f4511a0ceaa323e115664c19e3f0"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/web/static/js/session-mgr.js",
+      "production_sha256": "c5410677fb9e2a4e6faf551d7cba2363c7b49da374c3c75655da446a222305cd"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/web/static/js/tech-tree.js",
+      "production_sha256": "68ea7015c13753d91a1f436e087b092d97b8e165bbdc303e470cc4ee78c2d47f"
+    },
+    {
+      "file": "plugins/astrbot_plugin_group_chat_plus/web/static/js/utils.js",
+      "production_sha256": "b86adbf069ee47a44e8f2d9093c3a42cb89dfc7cc612059a3aa95d4ebf150018"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/.gitignore",
+      "production_sha256": "fc4a26bc497fde160accae9fa1df788695ad46307884f14f082768b42ba62616"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/CHANGELOG.md",
+      "production_sha256": "c609a6a42942ac6ee4c88898bd0cc5d6b5ca5a53952457097631f9f89af2562a"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/LICENSE",
+      "production_sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/main.py",
+      "production_sha256": "77a86cc27801ae2dc00058de0b66cf5b5b1d19e6cbab161de6e7f0ddb015dc26"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/metadata.yaml",
+      "production_sha256": "87178d97247d5fdd42fdb6ece948a0ee53d91382f51035fd4009411cf9c9ea3b"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/package-lock.json",
+      "production_sha256": "f8cc47fb77735bfe8affdc9341d8659713a73d22aa8cd39d68f0cd353902c352"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/package.json",
+      "production_sha256": "1698d5872b2a7ae76c1d00ea4b6ed88a67297923eae8e0ac345fa40fbf093dc3"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/README.md",
+      "production_sha256": "17d9a69315b73bdbb29592dd7084cf8265b8acf0c9203fa01281f97e6696b53c"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/README_en.md",
+      "production_sha256": "00da8d189ff9900f107bc28eeff74c72384758053834eb1b589e5bdf7423f45a"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/README_ru.md",
+      "production_sha256": "1e95cfd8133f789cb5726c7060946ccf8fa6ead7b783dbca70f5032704f2a5bd"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/README_zh.md",
+      "production_sha256": "e81bf20b692c48b536ef06c9f6d22fed5d81993f30062b38dd1fdc820c9bd682"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/requirements.txt",
+      "production_sha256": "672f1074e7bf001d61613a8eece50c0cd1fa45f7d5151c557f127fd1ff9e3ea4"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/_conf_schema.json",
+      "production_sha256": "9afa32cfad1d7a6340e2914ebf35c45f51cc745ae24008d52a17ad3b0ee61f68"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/command_handler.py",
+      "production_sha256": "66a7fd4ebad631e8a7eb1f46f4722f19193d6140689bcffef184ee221f77ef7d"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/event_handler.py",
+      "production_sha256": "e6355de4ced444d773c2fd792bf5e45ffd24e444f67649c4f8875caa94b376d2"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/faiss_async_persist.py",
+      "production_sha256": "7caba924455cd4141e80a0f8bcdea447c43adeda119dce691af1556c4996066f"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/i18n_backend.py",
+      "production_sha256": "cb4dde4115da7f48d7e6076f5e6514b62460b0c6b38e4d0303d19f354852a1b4"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/memory_scope.py",
+      "production_sha256": "a55e6a27e6abb9f5f073037b5254f15075d1fd836b6ef6c698bb57309875ebb1"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/memory_source.py",
+      "production_sha256": "c89275e9e17f36722bcebb5e5ff028db371eb86f499d83b6069a8603b9a328a2"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/memory_transfer.py",
+      "production_sha256": "9ef99e2a3b3b7fd42fa65049f068887df904678b1c66854f424c9e3995b7547f"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/page_api.py",
+      "production_sha256": "f62852e0597f743f7c79696b5a64938a9d570469e0ecf74e79046a94cde2c6ca"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/passive_group_capture.py",
+      "production_sha256": "bb60b8be01be4695ca436ab9f3e1be42ac73bda528fd3247a46caa008715ea22"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/plugin_initializer.py",
+      "production_sha256": "f082a8b8a994a20be34266c14c707d55eb893947d7b05d7b4c4ab0c1186be8e6"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/plugin_initializer_faiss.py",
+      "production_sha256": "525f582a96dac8d11af9ce2db35a06a161fac88433c225f97e272cc92640fdbf"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/plugin_initializer_finalize.py",
+      "production_sha256": "ace180971007e41355496130b6ed3e4fe76da5c8e3a098fb1c4b1cb057b1bead"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/__init__.py",
+      "production_sha256": "5d4ad23ea83e187b2399a2d32519593dacd9c6d05a2e5e3949fd94f19f1aa776"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/docs/architecture.md",
+      "production_sha256": "ee29f6df72d2ad84fe20eb0bb3d6760f8db6b34117f0fcf04ac2f46a3fb900cc"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/docs/commands.md",
+      "production_sha256": "80199bcc99b8d7ae373ead97dd30f14fc830a9c58c70a9c28da06430a2b91028"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/docs/configuration.md",
+      "production_sha256": "9472485868da6ffd7afc9ed966089f2da54c363318a8e6e34072c714f95a9377"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/docs/deployment.md",
+      "production_sha256": "30200101585593ec8a679969c90efed5518ec343ecd2d9b3ed5c18b6ecad1e25"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/docs/features.md",
+      "production_sha256": "e3b9994504a3f1674786bb653247cddc33f1b9466751383de34162b24025657d"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/docs/index.md",
+      "production_sha256": "341336d654f83ccf946b520a338a5be0f6eab90c1e44dd13969600da0dc73105"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/docs/webui.md",
+      "production_sha256": "fd1784bd1f2a9a4500a79d6a6f51d6ec005a09ac847001171703bf9f33757774"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/scripts/run_smoke.py",
+      "production_sha256": "03009fe8d8d5cdf7262d4190c001ff5c681a0a6ce71186312640e03df74ca6ab"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/storage/atom_store.py",
+      "production_sha256": "0eca7e1eb92117e5ad54464698a9b9830b79436da0e7fe142951453ff524efab"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/storage/conversation_store.py",
+      "production_sha256": "351437b9fb86b16a827362249d79ce864e7b21927a0c2f211a6e92d689ec9508"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/storage/conversation_store_messages.py",
+      "production_sha256": "54137e32b7923b5ec5fdda1aede796f59be91d177c3ce01ce9f72d429055a616"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/storage/db_migration.py",
+      "production_sha256": "0ed9c93a68dc170301fa86fb0b7433c2e4b7e54182818067c0c9cde1c57bcac5"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/storage/graph_store.py",
+      "production_sha256": "9b29951d3bdb0876d44fa90c1157e8afab1fecc47a420fd7ab24474b729b7101"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/storage/graph_store_read.py",
+      "production_sha256": "b171ce45f8e8a11b46af32dddc48caef125c7b91bdc15cfeb5072b9309748438"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/storage/graph_store_snapshot.py",
+      "production_sha256": "b9d753147c29560c96b85d436326a09ff7439da20afbdad23fff7579a224b54d"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/storage/graph_store_write.py",
+      "production_sha256": "4a6d505935b887248dfe5c1ecba414587c14d3d33fe4595927c71f84ffe52992"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/storage/__init__.py",
+      "production_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/.astrbot-plugin/i18n/en-US.json",
+      "production_sha256": "850b1fc592dc86bb9db3239628a240abb44e23cee3b98e9bec9b40dc5770f4c5"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/.astrbot-plugin/i18n/ru-RU.json",
+      "production_sha256": "6bfa5017969342d5d8fa845057cf519f2fea0af7d715cb586de81773c5e4345e"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/base/config_manager.py",
+      "production_sha256": "1c0f796cbeb657734c5bed8cbf874723abbe5c914c9df9029f0020bd98378ce0"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/base/config_validator.py",
+      "production_sha256": "eb7b1b1c2cac6b1627f0862989bdbd6d8cf5bf14bdcbef1841e6b14de77e192b"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/base/constants.py",
+      "production_sha256": "9213edf55515b3b71ff63a950bbc476ff7bf00d1a093040b0bcf4736fc54783e"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/base/exceptions.py",
+      "production_sha256": "f9586b14910f4c8f238f547e0b04736725b938e81065e5c1342be994df4a9141"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/base/__init__.py",
+      "production_sha256": "764417bd621813eabe54907f070bd03998f206b617a112f0e50531ec7f3c6892"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/event_handler_modules/group_capture.py",
+      "production_sha256": "0535ee079a3ff1408bb065862d54980683f491b4ae808436b4575b741d1bdf08"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/event_handler_modules/memory_recall.py",
+      "production_sha256": "be51e811b53f8f8b00117aae04db1d52f57370b598cec8170122f9ba1488bd9b"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/event_handler_modules/memory_reflection.py",
+      "production_sha256": "0437185b45cf17eb568a23c85a1b8d2e2a83c033152eb1dd221585914ecff931"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/event_handler_modules/message_utils.py",
+      "production_sha256": "092f9e4f91f64b33c868cff5b0c137745ddf2996570a1730ef9122fa1adfee14"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/event_handler_modules/__init__.py",
+      "production_sha256": "954037b053a6c95f4494e7ada5dd96562b3a1ac2eb6cdc1e44232577123cc2c4"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/i18n/en.json",
+      "production_sha256": "9352b52c620d064c25c37ca7d41d6dc6d7671c5fb72318abc0c9e33b932f66ac"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/i18n/ru.json",
+      "production_sha256": "61895ef9e825faff627c115c5d7f0630fee3ce3b47cb89b66f9a9e5ba05591d5"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/i18n/zh.json",
+      "production_sha256": "d083f36c8583ac9c287df850126d96503c27b318e5ddbf44a42c25aa99acfdfc"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/managers/atom_lifecycle_manager.py",
+      "production_sha256": "a639d34b8f1ef7dfd891aed8ea68e4f937e2a9e684d98b2d14eb6bde681ea479"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/managers/backup_manager.py",
+      "production_sha256": "576b72110fb93fbf472d4279137d4c0b7b8227a2b39744311faa6c8b4df07aad"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/managers/consolidation_manager.py",
+      "production_sha256": "b1e841944d835902ac141597294eba2ee000dc1f3e6e4a070b76dc1c57d5f9ec"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/managers/conversation_manager.py",
+      "production_sha256": "2d0cb3f3ee3fe57c4bfd5b9fbf82f05e04039a55f6aabbf7444105f20a71cbda"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/managers/graph_memory_manager.py",
+      "production_sha256": "490929235fa3d8364be91740b53222ebb50bf8227281f1b77bec51b08aa798dd"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/managers/memory_engine.py",
+      "production_sha256": "779491ee31c44b17ef1e7aa9dc83e47e9020aaf8c72a74e7b050e0d3e8392768"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/managers/memory_engine_batch.py",
+      "production_sha256": "9b44dbd0c1698a84f505b17d16e4b7c2f1c672dde71c8db5169579422481430e"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/managers/memory_engine_crud.py",
+      "production_sha256": "cfbb9b42fc0cd72f768f0469a9a4746b10810f0b38eec03e848a697b09281154"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/managers/memory_engine_write_ops.py",
+      "production_sha256": "5293243168e01b5a5e1f2201717014190fba1205bf29b75ec4f21132dbbdf330"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/managers/__init__.py",
+      "production_sha256": "b8ac3b454524434060b74fa9f0efefd6f1a19734713b4b2b0be00a410bc213c9"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/models/conversation_models.py",
+      "production_sha256": "003a7af2e82944281dd95bc66780009ddb582fd37e63bf65ece7382778516d65"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/models/default_stopwords.py",
+      "production_sha256": "b843b3f4317bf73037a4f3f837dc21d924f8237cc5e96fa910a227ee2e313a58"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/models/graph_models.py",
+      "production_sha256": "3818a3df48dfe5395af08394f57dacc1b3833908ca4ff50c94782203f656917d"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/models/memory_atom.py",
+      "production_sha256": "74e1060b8c16a7df7921fb03d29e7761dea6429d063a2c6f5a1ad5fcac67abb8"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/models/__init__.py",
+      "production_sha256": "12890ac6e7617a4695491a637f73cc846dd95f033f747ce416864bb75aa2cc1e"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/page_api_modules/backup_handler.py",
+      "production_sha256": "fcfca377b4eb16f5b0c20ca2a908f1e830dca714a245d10654e063a2700f2fbb"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/page_api_modules/consolidation_handler.py",
+      "production_sha256": "a7146d13a6f10b7a884777e7ae4d53ec62a93312407438fc15e6551316e77c2b"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/page_api_modules/graph_handler.py",
+      "production_sha256": "1fdeb97eda4d0b53c0f476f6ddf13a9cce3d96f09101034a801ae364baf111b2"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/page_api_modules/memory_handler.py",
+      "production_sha256": "28ece21f705f2915f6938e5ba631d812607ac453f5a85fdb960334ed74b5b7ae"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/page_api_modules/memory_handler_io.py",
+      "production_sha256": "e1e7aeec0aa7f6939889cc12d82c407eaeee74139b5dd3babe1f981fd43931f6"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/page_api_modules/memory_handler_update.py",
+      "production_sha256": "d3eeda1effb4b3498ca02a183700e09323ef83541c6000dd5c8587295579587a"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/page_api_modules/prompt_handler.py",
+      "production_sha256": "3559dbf2b1bad896f56618e4af5d5ba09475680aa4fc9c71f06574a76015dc06"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/page_api_modules/recall_handler.py",
+      "production_sha256": "9b0cae7cece287440a5bd23144c85d940a4179061401c99a41d666a7a94e26eb"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/page_api_modules/stats_handler.py",
+      "production_sha256": "78dec9e45f95d35de35134155002a1ef8218623fa0ace56771aee6e37b247c15"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/page_api_modules/utils.py",
+      "production_sha256": "661445d65751dfcdfabc8a89917027089f1c23882132ac0b72239fec85b9f0fa"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/page_api_modules/__init__.py",
+      "production_sha256": "a977286a501deab6c8a9bbd4eba9fd39196f7bb5fa763cccab0275188014a517"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/processors/atom_classifier.py",
+      "production_sha256": "8c9e1867b0c4840357529dc2ef866a7d7b89b055aa936e34b2eb78ecd9915090"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/processors/chatroom_parser.py",
+      "production_sha256": "2062b1002f049d8c4f4b66dc3313cdb2819996602215cfb467511c59c1153c72"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/processors/entity_resolver.py",
+      "production_sha256": "9029a76dab3afb3f1618b7af1c6fd61f95b483e4db058dcfb1af7f732a518e06"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/processors/graph_extractor.py",
+      "production_sha256": "7b950a2639f41a320e703bf48b8bb0f270f7b96c2c1a1561c37ce5f4f8aea22b"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/processors/memory_processor.py",
+      "production_sha256": "ae15a6eeaf1aed83f4a4c2d08b01188b31ee36f36d4afc7495fd159aed61abb8"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/processors/memory_processor_build.py",
+      "production_sha256": "9a7e5727b28ae3025e5540ff39e240dc067623a29527dc9eb077043cfc9ea25f"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/processors/memory_processor_parse.py",
+      "production_sha256": "8ce2ffc3d5af5492a9ee364f2603359a9492d6bdbd8d14970517fa7fd683d51f"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/processors/message_utils.py",
+      "production_sha256": "925f426a0dfd1567c89e3de13cd11e136cfe533608879f53ebeb6f62b159ffaa"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/processors/text_processor.py",
+      "production_sha256": "abc7c2f7d275e8036cefcac0e5c27e94393edaf1197a7218c12afe3377bb6a0b"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/processors/__init__.py",
+      "production_sha256": "addc5f10b58461a16c8d113654cdf5212c87d3f6685cd56eec5207fe9cf96ff8"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/prompts/group_chat_prompt.txt",
+      "production_sha256": "fa46c3140abdf1d1ece8796b8a67116676de653296917151ebc853a62d2babfb"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/prompts/memory_injection_footer.txt",
+      "production_sha256": "a1c1a2144f2fcdfaf2a2aae9910aa5a44f53eaa9ce7ceab3a3a6d2c2ad5f5dd7"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/prompts/memory_injection_header.txt",
+      "production_sha256": "dac81d87163be39b69dca87223d7ba094e0911708b422fe3473da85df6dfa26d"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/prompts/memory_system_prompt_base.txt",
+      "production_sha256": "6a228c5284e2a148bd1610483094bdb402845afbef809fa38815260df7d99c4d"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/prompts/memory_system_prompt_with_persona.txt",
+      "production_sha256": "977306598cd63324c4b10be182dcb23b2f3782f7a1bc295a37fecc5445f3648d"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/prompts/private_chat_prompt.txt",
+      "production_sha256": "1547e3abb9477fd7f62f5892a0a68fc611a9000961d3c5660f70e7a857e89256"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/prompts/prompt_manager.py",
+      "production_sha256": "b5ea7a6d24a0f0b094e818508ecac974d2c3166509f7607e0a591357fa30bbe0"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/prompts/__init__.py",
+      "production_sha256": "94a5b921d391c13f7f35355827f293ecaf8f66e401a616f25337db068ec23a33"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/retrieval/atom_retriever.py",
+      "production_sha256": "9f682d6b70908693998df064e24282985ce93d4271f2bfe99294393a061affd0"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/retrieval/bm25_retriever.py",
+      "production_sha256": "2adda31a50beb6db2be39f59355fa451c4925c099995e11be84a7724b3465bf0"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/retrieval/dual_route_retriever.py",
+      "production_sha256": "9c6bb941859b4d037ec3eec4d6b030df7820e699d501c869b1808f286617c018"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/retrieval/graph_keyword_retriever.py",
+      "production_sha256": "86d778d12ae3dfe8329e3f17ec11d5fa4ed64418eae364cd0fdff6772036c1b4"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/retrieval/graph_retriever.py",
+      "production_sha256": "59106e803bda812858867de80b3a5404de510943152e83a98a6c534e940e5e68"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/retrieval/graph_vector_retriever.py",
+      "production_sha256": "f00f7bd031384e83f64e0027cecbb391242b2a192a4134bbed3630a9c1d621c4"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/retrieval/hybrid_retriever.py",
+      "production_sha256": "efc7f230be52a6751fb0733553c60deb9e35a074beb7121c9849ac8e5fc8f53c"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/retrieval/rrf_fusion.py",
+      "production_sha256": "bbdb4e924eb6dbef2be6fbdf2f5bbce389b51792ec14eb0f88c7a152728b43fc"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/retrieval/vector_retriever.py",
+      "production_sha256": "c587d9169f8ac7ab01f26c87256600f0bf8bb39999533a0e2b1645500736f627"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/retrieval/__init__.py",
+      "production_sha256": "77fb3115c75af1e48ea62213fcf59dc44d57564132cee24411976c465f068f4d"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/schedulers/decay_scheduler.py",
+      "production_sha256": "36a91cf6dba67fbddd3c1038cbc2896b4725645eba617446027286da6506102c"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/schedulers/__init__.py",
+      "production_sha256": "72c925caeafcb916f1cc4e7726ad0b139ece6407803658a3b2139675d2456b4f"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/tools/memory_memorize_tool.py",
+      "production_sha256": "fefc495fea9374977169ed6d9e5ecf20f5f4a0dfb01d65793801d6fff93c6896"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/tools/memory_search_tool.py",
+      "production_sha256": "117db87d7b68eb8b8b128fbb1b96982d5b08154c37008c8627fbb427db7aac6a"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/tools/__init__.py",
+      "production_sha256": "c0e50ecaa6c0c98e6a43a8a60a8ff40c4659aad6024d7a3c78c6568c5da406c3"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/utils/formatting.py",
+      "production_sha256": "b98dfd2f0f5ba2f543cc8fdd92f46ff7722de0bba28fc01cf24fc51266d64843"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/utils/injection_adapter.py",
+      "production_sha256": "cb0533741097f5c66f57c782a96f1983140af59a261d81cb22335a94cdc8a0f1"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/utils/number_utils.py",
+      "production_sha256": "6d097e13c018c20c8337ff2edf944842e932246d815192e761cb8ac13e67c0a9"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/utils/stopwords_manager.py",
+      "production_sha256": "7e65e75a81f523791de60298bec41c0575b22b5b09afb70314930ee0baa67f0e"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/utils/__init__.py",
+      "production_sha256": "c82e57f641cc637a39c1ba57313f591183e0a871590cd69f7e6e0b19a85353fa"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/validators/index_validator.py",
+      "production_sha256": "11b3659bb1bfd42e00ee1e8fd51241592b3dac788988b59b8f9f41ed13a3e6fb"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/validators/index_validator_rebuild.py",
+      "production_sha256": "d123669dbe7e0638357d44415aeea4ee45fd88b537713907f197c6baff7da959"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/core/validators/__init__.py",
+      "production_sha256": "829cf7de9469c2cd0045c548bababec7e6ce955cb355cf07cf31a786f8de2acf"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/docs/.vitepress/config.mts",
+      "production_sha256": "e61999b62b8154b51fe23d054b6c55dd17d92565ad787dd721edf94dcd682cc6"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/docs/en/architecture.md",
+      "production_sha256": "460ba0716c2349c2b0394263cd3a0d7aea2e52778bab9edd35017782bac5d7d0"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/docs/en/commands.md",
+      "production_sha256": "55081f2aa533fbb7861a4eb4ba674c24b5a346b8fc883946b59b7a8bf6752555"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/docs/en/configuration.md",
+      "production_sha256": "d418febe8f4cfd230b8e5cedb5207dbb331f12dd57b651cc11049696410ed5f0"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/docs/en/deployment.md",
+      "production_sha256": "b643c97878987ff63b26b8a01470a682a341516c1e5388d8ef87e4213046b3a3"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/docs/en/features.md",
+      "production_sha256": "61d47dd844d3f339866b62d21cadd10bc2063d2b5f3f2ecd687f0aa66bc40926"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/docs/en/index.md",
+      "production_sha256": "6af5ed8e6ea9090414928663a22148b89e6a293154546c90aa1390a596029f9c"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/docs/en/webui.md",
+      "production_sha256": "f3eac672ce752363220082ca7b824105c65ea6e3ef7e080c7fd1eebf167b32ec"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/docs/guide/getting-started.md",
+      "production_sha256": "65a3fa3e8a84e3ec834b1787765cade7b77ed1c3d472946d389b30d382c5f890"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/docs/.vitepress/theme/custom.css",
+      "production_sha256": "713c18eff70f8abafd197e95aa945bee72c485690744a0eff160c3ae8289f450"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/docs/.vitepress/theme/index.ts",
+      "production_sha256": "e468242217336d2861b21beb1860a2df4ee297b51639dc178623f1a673fe6ccb"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/docs/en/guide/getting-started.md",
+      "production_sha256": "e70a3b023419a51cc58d5137d25185dcbcd4e64a176e4e13abd5addb0a746a48"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/docs/public/images/architecture-flow.svg",
+      "production_sha256": "8764673c4a66d18335eed53c5eee1e459aa592da4fddaf170fd7145d42938179"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/docs/public/images/lifecycle.svg",
+      "production_sha256": "f5de77c07dc6218911e195da12bb37682c792a0ea2933a73b006290cf4e3681b"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/docs/public/images/retrieval-flow.svg",
+      "production_sha256": "e2848359cf17ad6c7315768af58f9bfecea185bb2d6d90ee12d15f3ee9ae22dc"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/pages/dashboard/app.js",
+      "production_sha256": "b96017751a67b42551bd63a57ec7ee9091316b09c2df83a47e8f1d5e3d04e8dc"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/pages/dashboard/art-direction.css",
+      "production_sha256": "44f9d7adba09e0028ca506e16a65cb77384a44d2a5f4db0dc0b53bb179bc77ec"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/pages/dashboard/graph-2d.js",
+      "production_sha256": "846e4fed8c1bc26101280f92ec57e633a1d344d5dbdf96f3d1575955a00ee6c9"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/pages/dashboard/graph-interaction.js",
+      "production_sha256": "c2f085d594d200ef2544202e4dbc175b279a9c67094b820501ce6ba10338cb5f"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/pages/dashboard/graph-layout-core.js",
+      "production_sha256": "4c3b106527d9349d4347544b0b9041789a0e4a5af865b1c20cab7f009730227d"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/pages/dashboard/graph-layout-worker.js",
+      "production_sha256": "b026c0ab6083727aad99f0abe522fcddaa95a8046264a7d3b51cc0e121710ea4"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/pages/dashboard/graph-renderer.js",
+      "production_sha256": "2973c3716afef03202c56f4c920316129edd9f1e4debffa0b83f6988892d8731"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/pages/dashboard/graph-shared.js",
+      "production_sha256": "633aad465e29f0a0415ade271441aa941dd54cf473c55e15d188d6e7111a1668"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/pages/dashboard/graph-ui.js",
+      "production_sha256": "39210a5873dc14dff0a46703b14fb837e11a249fe8b0f435859c84b057fb7715"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/pages/dashboard/i18n.js",
+      "production_sha256": "b6e44c1592d9aeacc7d46673c2aaafb0b8a4740f8df43e7df83944f1de862dfd"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/pages/dashboard/index.html",
+      "production_sha256": "e5aa7329c6886e6d6a81abaa4e81c97f1e3f08dc48b26f42b85d7826600196c2"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/pages/dashboard/styles.css",
+      "production_sha256": "4489f1885474dff0e9b225f4c98bb2216494a2c84c49045c8e2b4dabda3ff0c3"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/pages/dashboard/modules/api-client.js",
+      "production_sha256": "0ad05828a5c4da8a3115f1ccb941ca8eeef61e245017d662425daa4b48f13f67"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/pages/dashboard/modules/index.js",
+      "production_sha256": "f9144b424f8de71e576f7a37d09e309c2786ceed739bb22f1704dd7f5faae91b"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/pages/dashboard/modules/memory-page.js",
+      "production_sha256": "905865b602d24a7de2aefb53975f2ed61b1ea66786db04b20fd0a735ba47916e"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/pages/dashboard/modules/peek-panel.js",
+      "production_sha256": "3b682a1f44223887244773dd91a1d1c921e1294ba2701998a8d4de71adbf6cd4"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/pages/dashboard/modules/prompt-page.js",
+      "production_sha256": "b53e7b28477f770a0d802eb9efadcebaee89e332d547e046e8535c7e9e5c2326"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/pages/dashboard/modules/recall-page.js",
+      "production_sha256": "55ab98ff432f88b6727ca63b63d282eddfd2fdd17671c119af93e473538cca20"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/pages/dashboard/modules/system-page.js",
+      "production_sha256": "a57de87ba19a6064a95e566f73df4dcbaaa0456011fcb057fc3a2440f5a673cd"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/pages/dashboard/modules/utils.js",
+      "production_sha256": "60017e3f8d41371fdbb1143800a3ded6928c7361dd680b52e4d71c8f8a188b32"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/pages/dashboard/vendor/lucide.min.js",
+      "production_sha256": "e37f337f85a50b1af4c830cb46e32545201ab6625f00deacf42721bf33ff0de0"
+    },
+    {
+      "file": "plugins/astrbot_plugin_livingmemory/static/stopwords/stopwords_hit.txt",
+      "production_sha256": "84e526454db0245cab0d167df067f00298d271ad2c86391d45f5e880c422cbae"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/.gitignore",
+      "production_sha256": "d289fd360e08c756ab8144c7ce3ea154dfce1afc88d84984ef16d5351ff4564d"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/CHANGELOG.md",
+      "production_sha256": "ded1319d873e5b8946898cc1aab9e88c84b536ae39df1ddd7162a81077aa71ff"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/config.py",
+      "production_sha256": "29562bdd38977e1d134d154a077324fbb4c8a46d62a0ded4bbf91668c53ae8c5"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/DEVELOPMENT.md",
+      "production_sha256": "7e12c41637a31611cb21b69276a0b281ff7c1bda4ba1f26a024847eece38092d"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/LICENSE",
+      "production_sha256": "e40601ba687df67a83ed6591635f3249238850aae3ddb90085502263e93c651a"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/main.py",
+      "production_sha256": "ec820924c4769ffc219f1d7b42155a0ba204947fc95bf27d2b7717fa6649a6d7"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/metadata.yaml",
+      "production_sha256": "26405f60c64599c751a5b36984d9f7838f53cbd8842df31ebde7853f679bc224"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/README.md",
+      "production_sha256": "cdbab9f7ab78250980e033e0b904be654c9b6f4f64c9586181a4aae43ad0ee20"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/requirements.txt",
+      "production_sha256": "8d96b76f85da26436f2ad7d5af0423a3a9db6627f515d3f010f6826e93b5f324"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/utils.py",
+      "production_sha256": "c03e9dfd7e149599e2f9537c8645a6cfe5f9c331d68a7574e69985c5133462a4"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/_conf_schema.json",
+      "production_sha256": "9fbf53e4b71936e585af4e07d3619daaba15012a78d491b9a388a47485399628"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/__init__.py",
+      "production_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/auto_collect.py",
+      "production_sha256": "442be7db1b60b3b09908502c1f640cb440da47c90b8b2bfbb388a3025f5a0e2f"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/auto_collect_index.py",
+      "production_sha256": "387e0ae43b98c8bf64d8657e3fc71d771828e29aa8f2410e0786b1019e901310"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/plugin_settings.py",
+      "production_sha256": "efaa745b2bb89b9530d7f7a63c25ebbf14afdc16b7d347f2aeaf335efdd0f6d0"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/__init__.py",
+      "production_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/docs/MULTI_PACK_IMPLEMENTATION.md",
+      "production_sha256": "88d4637de43f321ad892d3c5c3765eeac17467e5c97a184ede2848170d5a2eac"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/image_host/config.json",
+      "production_sha256": "72044e7651f2926dd0613fd953956e79ffe55ac5d509032e28dcf8b056dad5d6"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/image_host/config_r2_example.json",
+      "production_sha256": "b42c1db8c277fee413b5f5492ac5b6a054a7f3a37121e730f9a6326951bf281b"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/image_host/img_sync.py",
+      "production_sha256": "c2c3c14c02dc2eb07b31b8af29c5c904a932eaa4945d873f36deea317b9b8074"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/image_host/__init__.py",
+      "production_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/mixins/commands.py",
+      "production_sha256": "41c4a5602f07ee0c46fb08bdeb7ef35961ac4efddca7cb7621843427d859560c"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/mixins/event_handlers.py",
+      "production_sha256": "85cd779199747fe5412e7394abb197ecdeec79ec73aad17c5761a1a46c950a8c"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/mixins/web_api.py",
+      "production_sha256": "c6a01bf3007965ed30bd5d48910015977a6e92652153d481cad8660d9169be7e"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/mixins/__init__.py",
+      "production_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/meme_parser/context.py",
+      "production_sha256": "711d14b5ea6b0ef5ba1053e1cd54da497d5c9fb9c4d9b47eac343be0f071d26c"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/meme_parser/parser.py",
+      "production_sha256": "e190e7405d26e3d55f90d83c7d4e5a6111b00516ffa8f3e70ff542193b4bb9bc"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/meme_parser/text_safety.py",
+      "production_sha256": "102cb7ba8334b5cd3f894c8e1071a17acb994b80d8e2829efda36963e6813c0b"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/meme_parser/types.py",
+      "production_sha256": "ac38b86c852f292637793bbe3d7852918cd0c45c7c138139810c57dfc83694b7"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/meme_parser/__init__.py",
+      "production_sha256": "7eb8437531348e448e87ca36d83df7047ac42cdb36d7db736bc4a6d991b34d37"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/packs/categories.py",
+      "production_sha256": "3adb098789ba5d8039a999fdfdd8c07ccddd2179bf9a668354c95824cc91563b"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/packs/images.py",
+      "production_sha256": "243c41ec6ed2e3ceceefad139daa00f1cc3b400864aecaf992e04ab640bbbca1"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/packs/protocol.py",
+      "production_sha256": "7f8a93ac726d7607b1bb714b8f937106a77df732d91aac08caa51d655518ae10"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/packs/resolver.py",
+      "production_sha256": "a39933ff7838a5939ede3dc54896f820354898ea2c2d8b6565abd891eb132a48"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/packs/storage.py",
+      "production_sha256": "3ff2aa9b35ae7c24ffdd770fd1bfe934695730b3f87243e9d3d1802d30fa8f19"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/packs/transfer.py",
+      "production_sha256": "cfd29436ff611d95fc85d43f51849a1c7f600c0433e19b70610717725e67c252"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/packs/updates.py",
+      "production_sha256": "a65c35821595b1cab775e51049b31616aaf781de95b82d635510ea335025b016"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/packs/__init__.py",
+      "production_sha256": "bb7eaeb7a163d7aea46a0de5b3697806c6359a959d803a5952d151bfe3aeb43a"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/semantic/caption.py",
+      "production_sha256": "bbb54aaf4223240f79fef472d2e93250285dcc14145cc3578dd8098858ffce19"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/semantic/index.py",
+      "production_sha256": "0133289e818284c8f88ce3fa4dbb105a40e1546b9450f55372dfd96ae0ca6b24"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/semantic/models.py",
+      "production_sha256": "faa87238b8fe24c4ccf2cf84371b7014e9c940a932439fdadddab678b49ad227"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/semantic/query.py",
+      "production_sha256": "58a54cd04684df68e67d8b159a061ef0f6396ee8f88dc2140f3d8ef57ef37b98"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/semantic/storage.py",
+      "production_sha256": "eeab0d8e5babdb547f56c32364b94a5bf826087febd8956473dc71fb1fdc062a"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/semantic/task.py",
+      "production_sha256": "10ec76396f48c62a014702e1969d136597fea71635e75bc56c7bca8ffc677159"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/backend/semantic/__init__.py",
+      "production_sha256": "77dcd34b5201e2b58264bbab969eea51abcf67ba1effb30710f0c427c274ce9b"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/image_host/core/file_handler.py",
+      "production_sha256": "3d743742a274b9eff0b4d6f18800e9343099ba1cb4c1671f54e24788163f1f2a"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/image_host/core/sync_manager.py",
+      "production_sha256": "f0f80c21082c877d00710874f821f835cf266949e1917808816549663c810607"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/image_host/core/upload_tracker.py",
+      "production_sha256": "3054fd0424db9f8d6657a98ec7ada1c01f8cef8fa29673e233297b2f8246299d"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/image_host/core/__init__.py",
+      "production_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/image_host/interfaces/image_host.py",
+      "production_sha256": "a12752f4b70e55275a3c3b5e9e9212d4b489efb6db7d9db622a1c6de95d327f2"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/image_host/interfaces/__init__.py",
+      "production_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/image_host/providers/cloudflare_r2_provider.py",
+      "production_sha256": "4b559b182e47cee8962a43b12835980a6ee45ad5f38bf3a6e02ea9a34868e7b0"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/image_host/providers/lsky_provider.py",
+      "production_sha256": "391ca415ffdc3238500f9961569be14690670d0b5c74bc0faeded9b527f1765d"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/image_host/providers/provider_template.py",
+      "production_sha256": "67d448e5ac283d2a346bff98434c95347d0a10703e8daf61460341a59eade800"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/image_host/providers/stardots_provider.py",
+      "production_sha256": "7026ed0acfd0aaa6bcd4b7055c759e222b8098a66d14c4f4d50b5a26230c61f9"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/image_host/providers/webdav_provider.py",
+      "production_sha256": "5cdf55b49f250dbb038bd0fce91275db5347c6fb61ceae9e7552a0e5f933cd5b"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/image_host/providers/__init__.py",
+      "production_sha256": "185243923e77777ca0d1769e0c900e94f319ab2c57821f127b1ddb0e5afc965d"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/pages/app/index.html",
+      "production_sha256": "28aeb91d9e3a782a50244e8da608bda94d7306f21ed50b09b7d861a16868aa65"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/pages/app/a_manage/index.html",
+      "production_sha256": "ad0d380d3585f7d25bca884f00b5f5a8cfef173340ced5a0ba7d449982629d82"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/pages/app/a_manage/pack-transfer.js",
+      "production_sha256": "c827ff880e9cd58379b49f1af352f284267ed236ea48b1ef3ef572c7e3179992"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/pages/app/a_manage/script.js",
+      "production_sha256": "f44d3b309f06d1ce18f34fb4de83a0c27b0818e1d26d8110d3c93c7ee9541d2f"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/pages/app/a_manage/style.css",
+      "production_sha256": "b04c5057206266019d042420a16be22432c10a99f262556db1c9cd2b9e182a4d"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/pages/app/catalog/index.html",
+      "production_sha256": "69ca6f7f351cee6b6abb5cbb4867690a10b43100e45c164a7a37f3ffe34ccb8b"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/pages/app/catalog/script.js",
+      "production_sha256": "9d5746b942a17acf38b635679ff41fc45cd96697960e4e4a1eae5dcaf03f8182"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/pages/app/catalog/style.css",
+      "production_sha256": "c894cb5d0b36bc212b0daa3643911763faa5dac242418cbff4bb35621d078a0e"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/pages/app/catalog/updates.js",
+      "production_sha256": "6bfd532a1dc46012a0f75778f01a164bc56afe9d9f9a7543ddc6b90d8490ab87"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/pages/app/semantic/index.html",
+      "production_sha256": "01893e04008c29144681bed286cfaf4613f3bd6a9577b496f3a0b3b495e7e908"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/pages/app/semantic/script.js",
+      "production_sha256": "9376363de42b1e15f95787cd2373ef58ed1c17a9981a9c0d8cd65bef7c128712"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/pages/app/semantic/style.css",
+      "production_sha256": "0eb94d5893e9ad2b44e3b3243d4a78de2f0bf94bc804d8555868e973d8e2e108"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/pages/app/settings/config.js",
+      "production_sha256": "e18e133fdc55793e10a5b6844f75d522b98cf118ad8bdc2ffeb9b7f2359477fc"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/pages/app/settings/index.html",
+      "production_sha256": "c79b771839159d120b1c77b361c268b2ff3ad5741a58fdc022af3a37d7dcad18"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/pages/app/settings/script.js",
+      "production_sha256": "9acd3dcf167d4ad1f96f68301bf261cff9187664c236396450e21316a3d6cf3e"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/pages/app/settings/storage-guide.js",
+      "production_sha256": "7a2917bfad151eae7123694d7ea2714b3348c032e900ab11512c1e6202794144"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/pages/app/settings/style.css",
+      "production_sha256": "d87d31aa29f0d39b03f947ecee1ba31f5c5ac8a40ef17c87c71718929888011b"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/pages/app/shared/fa.min.css",
+      "production_sha256": "32cb3092b05488fb95d6db6ff7c1bcc74ff9fc44199fedef949443dc34baaf3b"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/pages/app/shared/preview.js",
+      "production_sha256": "8cfa6b2f40cc8376e7f3a33c1d9451f40e040c770f32f5c7e50bae5fc785b4e7"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/pages/app/shared/ui.css",
+      "production_sha256": "27593056e1d2f61be92686fcd792f891c13a82efc279f2a7102a243285b5a7f8"
+    },
+    {
+      "file": "plugins/astrbot_plugin_meme_manager/pages/app/shared/ui.js",
+      "production_sha256": "ba4e8b9323c1ef8a16a2255f0fd9622ff9f7aea1f52338fcf857fc28a3e2941d"
+    },
+    {
+      "file": "plugins/astrbot_plugin_whale_support/main.py",
+      "production_sha256": "3dc843b42b5a3a130f38d0a3f237c16c95f0b3f5375c80a3325668585e70f3ab"
+    },
+    {
+      "file": "plugins/astrbot_plugin_whale_support/metadata.yaml",
+      "production_sha256": "3963c9110ba87b66e93420e8a4de19f91eab6d1bcf414afceaa18a1fcfd6a2ff"
+    },
+    {
+      "file": "plugins/astrbot_plugin_whale_support/nicknames.py",
+      "production_sha256": "35990732d88d3b3e2ac39520d26590e6f18eba06a0251afbfb156cdc047c1e3b"
+    },
+    {
+      "file": "plugins/astrbot_plugin_whale_stickers/battle.py",
+      "production_sha256": "a4cdc3cc8512c28026acadda92bd37934e744b2eb1a937b2fc452af4e1165ba7"
+    },
+    {
+      "file": "plugins/astrbot_plugin_whale_stickers/main.py",
+      "production_sha256": "7d19ab3e11561adba07988d8d1617e2b541a8cce928afeb689f226138d65a415"
+    },
+    {
+      "file": "plugins/astrbot_plugin_whale_stickers/metadata.yaml",
+      "production_sha256": "c688032f57a237a5939730960837f4002c4456566e4613551165038c56ec1578"
+    }
+  ],
+  "persona_sha256": "1c154b66c7d52e70d3cf421188b82bd1b8d6a8ca38237c85a4888199e4a3d033",
+  "production_unchanged": true
+}

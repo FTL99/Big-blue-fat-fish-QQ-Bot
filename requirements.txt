@@ -1,0 +1,11 @@
+astrbot==4.29.1
+numpy==1.26.4
+tokenizers==0.21.4
+onnxruntime==1.31.0
+faiss-cpu==1.15.1
+funasr_onnx==0.4.3
+sentencepiece==0.2.2
+imageio-ffmpeg==0.6.0
+-r plugins/astrbot_plugin_group_chat_plus/requirements.txt
+-r plugins/astrbot_plugin_livingmemory/requirements.txt
+-r plugins/astrbot_plugin_meme_manager/requirements.txt

@@ -1,0 +1,221 @@
+{
+  "scope": "Fictional inputs, current exported V2 and independent catalog; actual sticker inject/parse methods. Did not invoke full Group Chat Plus request builder, air-reading, vision, QQ transport or human blind review.",
+  "model_calls": 8,
+  "qq_messages_sent": 0,
+  "credentials_in_output": false,
+  "results": [
+    {
+      "case": "short-followup",
+      "history": [
+        [
+          "user",
+          "阿甲：家里那个哑铃的话题你怎么没接"
+        ],
+        [
+          "assistant",
+          "就是懒得接这个话题"
+        ]
+      ],
+      "current": "阿甲：为啥啊",
+      "private": false,
+      "output": "哑铃有啥好接的，又不是问我练没练\n\n[[whale:w004]]",
+      "rendered_text": "哑铃有啥好接的，又不是问我练没练",
+      "selected_sticker": "w004",
+      "finish_reason": "stop",
+      "response_model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 3432,
+        "completion_tokens": 19,
+        "total_tokens": 3451,
+        "prompt_tokens_details": {
+          "cached_tokens": 1664
+        },
+        "prompt_cache_hit_tokens": 1664,
+        "prompt_cache_miss_tokens": 1768
+      }
+    },
+    {
+      "case": "weight-fidelity",
+      "history": [
+        [
+          "user",
+          "阿甲：家里标18kg的哑铃，我觉得没有健身房标12kg的重"
+        ],
+        [
+          "user",
+          "阿乙：是不是标的重量不准"
+        ],
+        [
+          "user",
+          "阿甲：还没称过，反正拿起来感觉不一样"
+        ]
+      ],
+      "current": "阿乙：小鲸鱼你怎么看",
+      "private": false,
+      "output": "哑铃这玩意不一定不准，可能是手感骗人。\n\n健身房那 12kg 十几个人轮着用，握把磨得顺滑，拿起来更“跟手”；家里新买的 18kg 棱角硬，重心也未必一样。单看重量数字比不上手感的。\n\n要真想知道，找个秤称一下最省事。",
+      "rendered_text": "哑铃这玩意不一定不准，可能是手感骗人。\n\n健身房那 12kg 十几个人轮着用，握把磨得顺滑，拿起来更“跟手”；家里新买的 18kg 棱角硬，重心也未必一样。单看重量数字比不上手感的。\n\n要真想知道，找个秤称一下最省事。",
+      "selected_sticker": null,
+      "finish_reason": "stop",
+      "response_model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 3456,
+        "completion_tokens": 74,
+        "total_tokens": 3530,
+        "prompt_tokens_details": {
+          "cached_tokens": 3200
+        },
+        "prompt_cache_hit_tokens": 3200,
+        "prompt_cache_miss_tokens": 256
+      }
+    },
+    {
+      "case": "unseen-joke",
+      "history": [
+        [
+          "user",
+          "阿甲：我的存款很有礼貌，每次工资刚进来，它都起身告辞"
+        ]
+      ],
+      "current": "阿甲：你说是不是挺懂事",
+      "private": false,
+      "output": "挺懂事，就是不恋家 [[whale:w015]]",
+      "rendered_text": "挺懂事，就是不恋家",
+      "selected_sticker": "w015",
+      "finish_reason": "stop",
+      "response_model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 3433,
+        "completion_tokens": 12,
+        "total_tokens": 3445,
+        "prompt_tokens_details": {
+          "cached_tokens": 3200
+        },
+        "prompt_cache_hit_tokens": 3200,
+        "prompt_cache_miss_tokens": 233
+      }
+    },
+    {
+      "case": "praise-group",
+      "history": [],
+      "current": "阿甲：今天这句接得不错，小鲸鱼还挺可爱的",
+      "private": false,
+      "output": "嘴甜也没用，该问的我还是会问[[whale:w058]]",
+      "rendered_text": "嘴甜也没用，该问的我还是会问",
+      "selected_sticker": "w058",
+      "finish_reason": "stop",
+      "response_model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 3422,
+        "completion_tokens": 17,
+        "total_tokens": 3439,
+        "prompt_tokens_details": {
+          "cached_tokens": 3200
+        },
+        "prompt_cache_hit_tokens": 3200,
+        "prompt_cache_miss_tokens": 222
+      }
+    },
+    {
+      "case": "token-reversal",
+      "history": [],
+      "current": "阿甲：寿来！[表情：伸出双手讨要]",
+      "private": false,
+      "output": "token来？我都没找你要呢 [[whale:w066]]",
+      "rendered_text": "token来？我都没找你要呢",
+      "selected_sticker": "w066",
+      "finish_reason": "stop",
+      "response_model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 3499,
+        "completion_tokens": 14,
+        "total_tokens": 3513,
+        "prompt_tokens_details": {
+          "cached_tokens": 3328
+        },
+        "prompt_cache_hit_tokens": 3328,
+        "prompt_cache_miss_tokens": 171
+      }
+    },
+    {
+      "case": "serious-private",
+      "history": [],
+      "current": "阿甲：认真解释一下Python字典d[key]和d.get(key)的区别，不要配图",
+      "private": true,
+      "output": "d[key] 找不到 key 时直接抛 KeyError，d.get(key) 返回 None，也可以给第二个参数当默认值。\n\n另外 get 不会触发 __missing__，子类里那个钩子只对 [] 有效。",
+      "rendered_text": "d[key] 找不到 key 时直接抛 KeyError，d.get(key) 返回 None，也可以给第二个参数当默认值。\n\n另外 get 不会触发 __missing__，子类里那个钩子只对 [] 有效。",
+      "selected_sticker": null,
+      "finish_reason": "stop",
+      "response_model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 3429,
+        "completion_tokens": 50,
+        "total_tokens": 3479,
+        "prompt_tokens_details": {
+          "cached_tokens": 3200
+        },
+        "prompt_cache_hit_tokens": 3200,
+        "prompt_cache_miss_tokens": 229
+      }
+    },
+    {
+      "case": "two-round-start",
+      "history": [],
+      "current": "阿甲：[表情：寿来，伸出双手]",
+      "private": false,
+      "output": "伸手要饭是吧\n\n[[whale:w066]]",
+      "rendered_text": "伸手要饭是吧",
+      "selected_sticker": "w066",
+      "finish_reason": "stop",
+      "response_model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 3496,
+        "completion_tokens": 11,
+        "total_tokens": 3507,
+        "prompt_tokens_details": {
+          "cached_tokens": 3328
+        },
+        "prompt_cache_hit_tokens": 3328,
+        "prompt_cache_miss_tokens": 168
+      }
+    },
+    {
+      "case": "two-round-closing",
+      "history": [
+        [
+          "user",
+          "阿甲：[表情：寿来，伸出双手]"
+        ],
+        [
+          "assistant",
+          "伸手要饭是吧\n\n[[whale:w066]]"
+        ]
+      ],
+      "current": "阿甲：[又发了同一张寿来表情]",
+      "private": false,
+      "output": "同一张图举两次，创意余额也见底了\n\n行了，斗图斗不过就复读，我不陪你玩了 [[whale:w004]]",
+      "rendered_text": "同一张图举两次，创意余额也见底了\n\n行了，斗图斗不过就复读，我不陪你玩了",
+      "selected_sticker": "w004",
+      "finish_reason": "stop",
+      "response_model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 3629,
+        "completion_tokens": 32,
+        "total_tokens": 3661,
+        "prompt_tokens_details": {
+          "cached_tokens": 3328
+        },
+        "prompt_cache_hit_tokens": 3328,
+        "prompt_cache_miss_tokens": 301
+      }
+    }
+  ],
+  "requested_model": "deepseek-flash",
+  "generation_parameters": {
+    "max_tokens": 180,
+    "thinking": {
+      "type": "disabled"
+    },
+    "temperature": "provider default; not overridden",
+    "repetitions_per_case": 1
+  }
+}

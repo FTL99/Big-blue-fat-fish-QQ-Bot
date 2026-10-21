@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "python_files_parsed": 217,
+  "sticker_hashes": 66,
+  "checks": {
+    "fresh_install_and_persona": true,
+    "existing_install_refused": true,
+    "input_validation": true,
+    "collection_pack_schema": true,
+    "nickname_persisted_and_fresh_process_read": true,
+    "group_private_isolation": true,
+    "nickname_permissions_and_non_naming_negatives": true,
+    "battle_group_and_private_limits_2_to_5": true,
+    "serious_question_real_route": true
+  },
+  "model_api_calls": 0,
+  "qq_messages_sent": 0,
+  "scope": "Fresh data directory using preinstalled AstrBot dependencies; routing handlers partly extracted from actual source. Not a clean-machine network install or QQ delivery test."
+}
