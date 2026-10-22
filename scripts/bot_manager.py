@@ -109,7 +109,8 @@ def run_ps_pids(ps_pipeline, tag):
     full = "%s | Out-File -FilePath '%s' -Encoding utf8" % (ps_pipeline, out_path)
     try:
         subprocess.run(["powershell", "-NoProfile", "-Command", full],
-                       capture_output=True, text=True, errors="replace", timeout=25)
+                       capture_output=True, text=True, errors="replace", timeout=25,
+                       creationflags=subprocess.CREATE_NO_WINDOW)
     except Exception:
         pass
     pids = []
@@ -166,7 +167,8 @@ def listening_pids(port):
     try:
         out = subprocess.run(
             ["netstat", "-ano", "-p", "tcp"],
-            capture_output=True, text=True, errors="replace", timeout=15
+            capture_output=True, text=True, errors="replace", timeout=15,
+            creationflags=subprocess.CREATE_NO_WINDOW
         ).stdout
     except Exception:
         return []
@@ -189,7 +191,8 @@ def pids_connected_to(port):
     try:
         out = subprocess.run(
             ["netstat", "-ano", "-p", "tcp"],
-            capture_output=True, text=True, errors="replace", timeout=15
+            capture_output=True, text=True, errors="replace", timeout=15,
+            creationflags=subprocess.CREATE_NO_WINDOW
         ).stdout
     except Exception:
         return []
@@ -283,7 +286,8 @@ def bat_window_pids(where):
 def kill_tree(pid):
     # errors="replace" 必须带：taskkill 成功时输出中文（GBK），strict 解码会把读线程炸掉
     subprocess.run(["taskkill", "/F", "/T", "/PID", str(pid)],
-                   capture_output=True, text=True, errors="replace")
+                   capture_output=True, text=True, errors="replace",
+                   creationflags=subprocess.CREATE_NO_WINDOW)
 
 
 def runtime_dir(base):

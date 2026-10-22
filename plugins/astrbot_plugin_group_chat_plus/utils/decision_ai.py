@@ -14,6 +14,7 @@
 """
 
 import asyncio
+import json
 from datetime import datetime
 from typing import List, Optional, Dict, Any, Tuple
 from astrbot.api.all import *
@@ -168,17 +169,26 @@ class DecisionAI:
   - 禁止提及"判断记录"等元信息
 
 【输出要求】：
-  - 默认情况下：只输出yes或no，不要其他内容
-  - 如果下方额外规则要求你先输出推理块，则必须先输出一段由指定起始符/截止符包裹的推理
-  - 推理块结束后，最后一行必须且只能是yes或no
-  - 最终结论不得附带解释、前缀、后缀、标点或其他内容
-  - 禁止输出任何未被要求的解释、理由、元信息或原生思考标签
+  - 按本次参与方式协议输出对话指向与yes/no结论，不生成正式回复
   - 可以主动接梗、提出观点和参与讨论；没有自然的参与机会时可以不回复，不为接话而接话
   - 结合引用、@和历史理解当前消息；追问、纠正、补答也是自然的参与机会，不擅自续接无关旧话题
 """
 
     # 系统判断提示词的结束指令（单独分离，用于插入自定义提示词）
     SYSTEM_DECISION_PROMPT_ENDING = "\n请开始判断：\n"
+
+    PARTICIPATION_OUTPUT_PROMPT = """
+【本次参与方式协议】本协议替代其它仅输出yes/no的格式要求。
+先区分当前消息发送给谁，再决定你如何参与。有人提问不代表在问你；允许插话不代表你成为被问者。
+- direct：当前消息是在向你提问、接你的话或明确邀请你回应。
+- join：当前消息属于群友之间的对话，你有自然的评论、补充或接梗机会；保持旁听参与者身份，不代替被问的人回答其经历或状况。
+- skip：没有自然的参与机会。对方等待另一位群友回答时，你没有可补充的内容可以安静。
+引用、@、最近发言与语义关系共同用于判断；较早的对话关系不会自动延续。你先前误接过话，也不能据此把后续群友问答认作在问你。
+输出两行，不输出分析过程：
+第一行是JSON对象，字段为mode、addressee、anchor。mode只能是direct/join/skip；addressee是当前消息原本指向的人ID（机器人用bot，不确定用unknown），不是你打算回复谁；anchor是直接承接的原话片段，最多120字，无法确定则为空字符串，不编造原话。
+第二行仅为yes或no：direct/join对应yes，skip对应no。
+如配置要求推理块，可置于这两行之前；最终两行仍遵循本协议。
+"""
 
     @staticmethod
     def _build_reasoning_protocol(
@@ -547,6 +557,7 @@ class DecisionAI:
         """
         sample_guard("decision")
         try:
+            event.set_extra("_group_chat_plus_participation", None)
             if hasattr(event, "_decision_ai_error"):
                 try:
                     delattr(event, "_decision_ai_error")
@@ -890,6 +901,8 @@ class DecisionAI:
             if event.get_extra("_whale_battle_candidate", False):
                 dynamic_prompt += "\n[互动指向]本条是明确指向你的表情或短时连续接招；结合图意判断是否自然接招，不要仅因纯图就拒绝。若转向他人、认真求助或明确喊停，仍返回no。"
 
+            combined_system_prompt += "\n\n" + DecisionAI.PARTICIPATION_OUTPUT_PROMPT
+
             # 调用AI,添加超时控制
             async def call_decision_ai():
                 response = await provider.text_chat(
@@ -926,6 +939,25 @@ class DecisionAI:
 
             # 解析AI的回复
             decision = DecisionAI._parse_decision(decision_answer or "")
+            participation = DecisionAI._parse_participation(ai_response)
+            if participation:
+                decision = participation["mode"] != "skip"
+                if participation["anchor"] not in formatted_message:
+                    participation["anchor"] = ""
+                addressee = participation["addressee"]
+                if addressee == str(event.get_self_id()):
+                    participation["addressee"] = "bot"
+                elif addressee not in ("bot", "unknown") and (
+                    f"ID:{addressee}" not in formatted_message
+                    and f"ID: {addressee}" not in formatted_message
+                ):
+                    participation["addressee"] = "unknown"
+            elif decision:
+                # 兼容旧yes/no输出，但不把yes解释为消息发给机器人。
+                participation = {"mode": "unknown", "addressee": "unknown", "anchor": ""}
+            if participation:
+                event.set_extra("_group_chat_plus_participation", participation)
+                logger.info("[参与身份] " + json.dumps(participation, ensure_ascii=False))
 
             if decision:
                 logger.info("决策AI判断: 应该回复这条消息 (yes)")
@@ -1027,6 +1059,28 @@ class DecisionAI:
         except Exception as e:
             logger.error(format_ai_error(e, context_label))
             return ""
+
+    @staticmethod
+    def _parse_participation(ai_response: str) -> Optional[Dict[str, str]]:
+        """读取决策结果中的简短对话指向；不把自由文本当成系统指令。"""
+        cleaned = AIResponseFilter.filter_thinking_chain(ai_response or "")
+        for line in cleaned.splitlines():
+            if not line.strip().startswith("{"):
+                continue
+            try:
+                data = json.loads(line)
+            except (ValueError, TypeError):
+                continue
+            if not isinstance(data, dict) or data.get("mode") not in ("direct", "join", "skip"):
+                continue
+            addressee = data.get("addressee", "unknown")
+            anchor = data.get("anchor", "")
+            return {
+                "mode": data["mode"],
+                "addressee": addressee[:80] if isinstance(addressee, str) and addressee else "unknown",
+                "anchor": anchor[:120] if isinstance(anchor, str) else "",
+            }
+        return None
 
     @staticmethod
     def _parse_decision(ai_response: str) -> bool:
