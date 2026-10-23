@@ -124,6 +124,7 @@ def prepare(root, group_id, admin_qq, bot_qq, python, api_key, napcat_dir='', re
     runtime = root / '.bot_runtime'
     runtime.mkdir()
     shutil.copyfile(REPO / 'scripts/bot_manager.py', runtime / 'bot_manager.py')
+    shutil.copyfile(REPO / 'scripts/qq_health.py', runtime / 'qq_health.py')
     identity = data / 'plugin_data/astrbot_plugin_group_chat_plus/identity'
     identity.mkdir(parents=True)
     names = []

@@ -367,8 +367,13 @@ def cmd_status(cfg, base=None):
     log(f"AstrBot : {'RUNNING' if dash else 'STOPPED'}"
         f"  (WebUI:{DASH_PORT} {'监听中' if dash else '无'}, 反向WS:{WS_PORT} {'监听中' if ws else '无'}, PID {','.join(dash) or '-'})")
     log(f"NapCat  : {qq_state}  ({qq_line})")
-    log("整体状态: " + ("正常运行" if dash and (qq or ws_clients) else ("部分未启动" if (dash or qq or ws_clients) else "全部未启动")))
-    return 0 if (dash and (qq or ws_clients)) else 1
+    sys.path.insert(0, os.path.join(base, RUNTIME_DIR))
+    from qq_health import NapCatHealth
+    health = NapCatHealth(base).check()
+    log("QQ 登录与连接: " + health["reason"])
+    healthy = bool(dash and ws and ws_clients and health["online"])
+    log("整体状态: " + ("正常运行" if healthy else "未就绪，不能正常收发群消息"))
+    return 0 if healthy else 1
 
 
 def cmd_kill_astrbot(cfg, base=None):
@@ -555,11 +560,14 @@ def cmd_scan(cfg, base):
 
 
 def cmd_stop(cfg, base=None):
+    if base:
+        with open(os.path.join(runtime_dir(base), "qq-watch-paused"), "w"):
+            pass
     napcat_result = cmd_kill_napcat(cfg, base)
     time.sleep(1)
     astrbot_result = cmd_kill_astrbot(cfg, base)
     time.sleep(1)
-    cmd_status(cfg)
+    cmd_status(cfg, base)
     return max(napcat_result, astrbot_result)
 
 
@@ -579,6 +587,10 @@ def execute_command(cmd, cfg, base):
         try:
             use_rel = ensure_runtime_copy(base)
             ensure_console_bat(base, use_rel)
+            if cmd in ("start", "scan"):
+                sys.path.insert(0, os.path.join(base, RUNTIME_DIR))
+                from qq_health import start_watchdog
+                start_watchdog(base)
             return {"start": cmd_start, "stop": cmd_stop, "status": cmd_status,
                     "scan": cmd_scan, "kill_astrbot": cmd_kill_astrbot,
                     "kill_napcat": cmd_kill_napcat}[cmd](cfg, base)
