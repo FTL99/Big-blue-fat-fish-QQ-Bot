@@ -19,3 +19,10 @@ FTL99 在 2026-10-20 至 2026-10-21 的主要修改：group_chat_plus 上下文�
 AGPL 组件及其修改继续适用原协议的源码提供、许可和修改声明要求。发布或对外运行修改版时，应把实际对应版本的仓库/归档地址提供给用户。AGPL 不禁止商业使用，不在它的代码上另加非商业限制；美术 NC 条款单独适用。
 
 运行依赖入口：[NapCat v4.18.38 LICENSE](https://github.com/NapNeko/NapCatQQ/blob/v4.18.38/LICENSE)、[BGE 原模型](https://huggingface.co/BAAI/bge-small-zh-v1.5)、[Xenova ONNX 模型](https://huggingface.co/Xenova/bge-small-zh-v1.5)、[SenseVoice 模型卡](https://huggingface.co/FunAudioLLM/SenseVoiceSmall)、[FunASR MODEL_LICENSE](https://github.com/modelscope/FunASR/blob/main/MODEL_LICENSE)、[FFmpeg 许可](https://ffmpeg.org/legal.html)。
+
+
+## 2026-10 后续修改
+
+会话理解及按需检索、B站资料绑定与隔离属于 group_chat_plus / LivingMemory 的修改，继续遵守各自 AGPL。B站字幕与故事板流程参考 c1overzz/dsh-bili-scroll 的固定提交 4af98392ee078e02f50a7fd0bf0491033f4675ed；完整 MIT 署名与许可见 `plugins/astrbot_plugin_group_chat_plus/THIRD_PARTY_BILIBILI_NOTICE.md`。
+
+本项目新增的 `local_tts/serena.py` 与 `whale_support/voice.py` 为本地语音接入代码，按根目录 MIT 发布。运行时另需 Qwen3-TTS、PyTorch、Gradio 等依赖及模型权重，各自协议独立；本仓库不重分发模型、CUDA 二进制、参考声音或生成音频。模型来源：Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice。

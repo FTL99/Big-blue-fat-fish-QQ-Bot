@@ -31,6 +31,7 @@ class NapCatHealth:
         self.expires = 0
 
     def post(self, path, body):
+        self.request_path = path
         req = urllib.request.Request(self.url + path,
             data=json.dumps(body).encode(), headers={'Content-Type': 'application/json',
             **({'Authorization': 'Bearer ' + self.credential} if self.credential else {})})
@@ -71,8 +72,12 @@ class NapCatHealth:
             return {'online': connected, 'reason': 'QQ 已在线且已连接 AstrBot' if connected
                     else 'QQ 已在线，但尚未连接 AstrBot'}
         except Exception as exc:
+            cause = getattr(exc, 'reason', exc)
             return {'online': None, 'reason': '无法确认 QQ 在线状态（本机管理接口不可用）',
-                    'error_type': type(exc).__name__}
+                    'error_type': type(exc).__name__,
+                    'request_path': getattr(self, 'request_path', None),
+                    'error_code': getattr(exc, 'code', None) or getattr(cause, 'winerror', None)
+                                  or getattr(cause, 'errno', None)}
 
 
 class AlertState:
@@ -80,19 +85,25 @@ class AlertState:
         self.failures = 0
         self.alerted = False
         self.kind = None
+        self.since = None
 
     def update(self, online, paused=False):
         if online is True or paused:
             self.failures = 0
             self.alerted = False
             self.kind = None
+            self.since = None
             return False
         kind = 'unknown' if online is None else 'offline'
         if kind != self.kind:
             self.failures = 0
             self.alerted = False
             self.kind = kind
+            self.since = time.monotonic()
         self.failures += 1
+        # A brief WebUI failure does not establish that QQ is offline.
+        if kind == 'unknown' and time.monotonic() - self.since < 300:
+            return False
         if self.failures >= 2 and not self.alerted:
             self.alerted = True
             return True
@@ -111,7 +122,30 @@ def popup(reason, unknown=False):
                      '\n登录恢复后会静默补读群消息，不补发回复。')
         else:
             text += '\n\n请检查 NapCat 与 AstrBot 的连接，监控会继续重试。'
-    ctypes.windll.user32.MessageBoxW(None, text, 'QQ 机器人掉线提醒', 0x40 | 0x10000)
+    title = 'QQ 机器人监控提示' if unknown else 'QQ 机器人掉线提醒'
+    ctypes.windll.user32.MessageBoxW(None, text, title, 0x40 | 0x10000)
+
+
+def close_popup(thread):
+    """Close only dialogs owned by this notifier's popup thread."""
+    if thread is None or not thread.is_alive() or thread.native_id is None:
+        return
+    import ctypes
+    from ctypes import wintypes
+    user32 = ctypes.windll.user32
+    callback_type = ctypes.WINFUNCTYPE(wintypes.BOOL, wintypes.HWND, wintypes.LPARAM)
+    user32.PostMessageW.argtypes = [wintypes.HWND, wintypes.UINT, wintypes.WPARAM, wintypes.LPARAM]
+    user32.PostMessageW.restype = wintypes.BOOL
+    user32.EnumThreadWindows.argtypes = [wintypes.DWORD, callback_type, wintypes.LPARAM]
+    user32.EnumThreadWindows.restype = wintypes.BOOL
+
+    def close_window(hwnd, _):
+        user32.PostMessageW(hwnd, 0x0010, 0, 0)  # WM_CLOSE
+        return True
+
+    callback = callback_type(close_window)
+    user32.EnumThreadWindows(thread.native_id, callback, 0)
+    thread.join(timeout=0.2)
 
 
 def start_watchdog(base):
@@ -142,6 +176,10 @@ def watch(base):
         while True:
             paused = (runtime / 'qq-watch-paused').exists()
             status = health.check() if not paused else {'online': False, 'reason': '用户已停止机器人'}
+            if paused or status['online'] is True or (
+                previous is not None and previous['online'] is not status['online']
+            ):
+                close_popup(popup_thread)
             state = {**status, 'paused': paused}
             report = {**state, 'checked_at': time.time(), 'pid': os.getpid()}
             temp = runtime / 'qq-health.json.tmp'

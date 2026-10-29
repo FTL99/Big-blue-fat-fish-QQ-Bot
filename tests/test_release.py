@@ -118,7 +118,8 @@ async def check_runtime(temporary):
     for method in cls.body:
         if isinstance(method, (ast.FunctionDef, ast.AsyncFunctionDef)):
             method.decorator_list = []
-    ns = {'Star': Star, 'filter': filter, 'asyncio': asyncio, 'time': time, 'json': json,
+    serena = load('release_serena_voice_test', REPO / 'plugins/astrbot_plugin_whale_support/voice.py')
+    ns = {'SerenaVoice': serena.SerenaVoice, 'Star': Star, 'filter': filter, 'asyncio': asyncio, 'time': time, 'json': json,
           'correction': names.correction, 'GROUP': '20001', 'ADMIN': '20002'}
     unit = ast.Module(body=[ast.ImportFrom(module='__future__', names=[ast.alias(name='annotations')], level=0), cls], type_ignores=[])
     exec(compile(ast.fix_missing_locations(unit), 'actual-release-support', 'exec'), ns)

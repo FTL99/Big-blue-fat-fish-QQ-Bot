@@ -65,3 +65,8 @@ python scripts/install.py --install-root D:\whale-bot --group-id 20001 --admin-q
 ## 公开发布边界
 
 只提交源码仓库中的文件。安装目录、相邻 Python 环境、模型、QQ/NapCat、面板凭据、聊天记录和本地收藏都不进入 Git。源码的 .gitignore 是辅助保护，不能代替提交前检查；不要使用 git add D:\whale-bot 一类把运行目录整体纳入版本控制的做法。
+
+
+## 可选语音与视频读取
+
+建议开启TTS功能，使用体验更佳。按 [TTS 说明](SERENA-TTS.md)配置本地 Serena，或使用 AstrBot 支持的其他 TTS；避免同时启用两条发送路径。TTS 模型和 CUDA 环境需另外准备，安装器不会自动下载。B站分享卡、字幕及本地扫码登录方式见 [视频读取](BILIBILI-READ.md)。

@@ -15,6 +15,7 @@ import json
 from astrbot.api.all import *
 from astrbot.api.event import AstrMessageEvent
 from .ai_error_formatter import format_ai_error
+from .semantic_understanding import reply_hint, missing_evidence_reply
 from astrbot.core.provider.entities import ProviderRequest
 
 # 详细日志开关（与 main.py 同款方式：单独用 if 控制）
@@ -98,7 +99,7 @@ class ReplyHandler:
 3. 识别当前消息的主要问题或话题
 4. 对“为什么”“怎么看”“不是这事”等追问，优先寻找直接承接的发言和尚未回答的问题
 5. 被催问时先接回未解决的问题，可以顺口回怼，但不能只针对最新关键词回怼
-6. 对方纠正理解后按新信息继续；无法确定所指时自然确认，不擅自选择无关旧话题
+6. 对方明确纠正你的理解、补充事实或点名回应对象时，以最新明确内容为准，修正旧判断并继续完成当前请求；不要为旧回答辩解，也不要重复已被纠正的话题。只有最新信息仍无法确定对象或请求时，才自然澄清
 
 【主语与指代】：
 - 用户语句缺主语时不要擅自补充，根据已有信息自然理解
@@ -195,6 +196,7 @@ class ReplyHandler:
         pending_cooldown_context: dict | None = None,
         single_at_message_context: dict | None = None,
         smart_batch_reply_hint: str = "",
+        image_description_cache=None,
     ) -> ProviderRequest:
         """
         生成AI回复
@@ -232,6 +234,25 @@ class ReplyHandler:
         contexts = []
 
         try:
+            # Explicit triggers bypass participation gating but still need reference resolution.
+            from .bilibili_reader import enrich_bilibili_context
+            formatted_message = await enrich_bilibili_context(context, event, formatted_message)
+            if not event.get_extra("_group_chat_plus_semantic_checked", False):
+                from .decision_ai import DecisionAI
+
+                await DecisionAI.should_reply(
+                    context, event, formatted_message, "", "", timeout=20,
+                    original_message_text=event.get_message_str(),
+                    include_persona=False, force_reply=True,
+                    image_description_cache=image_description_cache)
+            if event.get_extra("_bilibili_focus") is not None:
+                # Video facts come from this request's sources, not recalled bot summaries.
+                plan = event.get_extra("_group_chat_plus_understanding") or {}
+                plan.update(needs_memory=False, needs_topic_lookup=False)
+                event.set_extra("_group_chat_plus_understanding", plan)
+            missing_reply = missing_evidence_reply(event)
+            if missing_reply:
+                return event.plain_result(missing_reply)
             # 🆕 提取当前发送者信息，用于强化识别（仅在开启 include_sender_info 时添加）
             sender_emphasis = ""
             sender_id = event.get_sender_id()
@@ -486,9 +507,35 @@ class ReplyHandler:
             # 🆕 v1.2.2-hotfix.1: 提取静态系统指令到独立 extra，由 on_llm_request 追加到 system_prompt
             # 注意: full_prompt 中保留原静态前缀以作安全网（钩子失败时仍可用）
             _reply_static_instructions = ReplyHandler.SYSTEM_REPLY_PROMPT
+            _reply_static_instructions += (
+                "\n【依据与对话承接】结合最近相关原话判断本轮是在提问、回答、更正还是换话题，"
+                "先回应这层意图。候选理解、用户归因和旧记忆都不是新增事实；核对证据后使用。"
+                "纠正一个误解不等于确认其他推断，不因人设、玩笑或来源同名就编造或认领自己及他人的历史行为。"
+                "只评价有依据的内容，不额外编故事；缺依据时保留不确定。"
+                "候选理解标记uncertain时，先核对缺口；多个对象未选定就必要澄清或分别讨论，不能随意选定。"
+                "未检索到只能说明目前没找到，不能断言用户从未说过，也不把记录缺口归咎于用户记错。\n"
+            )
+            _reply_static_instructions += reply_hint(event)
+            if event.get_extra("_bilibili_focus") is not None:
+                _reply_static_instructions += (
+                    "\n【视频读取能力与来源边界】本轮仅有独立资料包中的字幕、抽样截图和观众样本，"
+                    "并没有播放观看完整视频。被问是否看完时，直接说明已经读到哪些资料及未覆盖部分；"
+                    "不能声称‘看完了’‘完整看过’或把取得字幕说成全片观看。"
+                    "各条BVID/CID/part分别绑定各自正文，标题相近也不能互借剧情、引语或时间点；"
+                    "本轮读取失败就说明缺口，历史答复和记忆不能充当本片内容。\n")
+            if event.get_extra("_bilibili_preliminary"):
+                _reply_static_instructions += "\n本轮你已先说会查看视频。现在给出基于实际资料的正式回答；读取失败就说明缺口，不再重复预告，不把评论或弹幕当作视频事实。\n"
             if extra_prompt and extra_prompt.strip():
                 _reply_static_instructions += (
                     f"\n\n用户补充说明:\n{extra_prompt.strip()}\n"
+                )
+            if "离线补读" in formatted_message:
+                _reply_static_instructions += (
+                    "\n\n[离线补读上下文规则]\n"
+                    "带【离线补读】标记的消息用于补齐你掉线期间的群聊上下文；不要主动逐条补发旧回复。"
+                    "如果当前消息明确要求你回应、安慰或继续其中的话题，就把这些消息当作有效上下文，"
+                    "优先回应时间最近且尚未解决的对象和具体困扰。不要跳回更早、无关的旧话题或记忆；"
+                    "如果被回应对象仍不清楚，再先自然地问清楚。\n"
                 )
             _reply_static_instructions += ReplyHandler.SYSTEM_REPLY_PROMPT_ENDING
             event.set_extra(
@@ -584,4 +631,5 @@ class ReplyHandler:
         Returns:
             True=已有回复，False=尚未回复
         """
-        return getattr(event, "_has_send_oper", False)
+        return (getattr(event, "_has_send_oper", False)
+                and not event.get_extra("_bilibili_preliminary_owns_send", False))

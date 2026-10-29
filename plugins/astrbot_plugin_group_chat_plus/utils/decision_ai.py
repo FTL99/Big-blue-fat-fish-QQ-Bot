@@ -21,6 +21,10 @@ from astrbot.api.all import *
 from .ai_response_filter import AIResponseFilter
 from .ai_error_formatter import format_ai_error
 from ._session_guard import sample_guard
+from .semantic_understanding import (
+    PROTOCOL, UNDERSTANDING_KEY, EVIDENCE_KEY, MEMORY_KEY, STATUS_KEY,
+    parse_understanding, protocol_object, retrieve_evidence, evidence_text, understanding_provider,
+)
 
 # 详细日志开关（与 main.py 同款方式：单独用 if 控制）
 DEBUG_MODE: bool = False
@@ -532,6 +536,8 @@ class DecisionAI:
         # 🆕 判断型AI人格配置
         include_persona: bool = True,
         configured_persona_name: str = "",
+        image_description_cache=None,
+        force_reply: bool = False,
     ) -> bool:
         """
         调用AI判断是否应该回复
@@ -556,8 +562,14 @@ class DecisionAI:
             True=应该回复，False=不回复
         """
         sample_guard("decision")
+        force_reply = force_reply or bool(event.get_extra("_bilibili_preliminary"))
         try:
+            from .bilibili_reader import enrich_bilibili_context
+            formatted_message = await enrich_bilibili_context(context, event, formatted_message)
             event.set_extra("_group_chat_plus_participation", None)
+            event.set_extra("_group_chat_plus_semantic_checked", True)
+            for key in (UNDERSTANDING_KEY, EVIDENCE_KEY, MEMORY_KEY, STATUS_KEY):
+                event.set_extra(key, None)
             if hasattr(event, "_decision_ai_error"):
                 try:
                     delattr(event, "_decision_ai_error")
@@ -579,6 +591,8 @@ class DecisionAI:
                 except Exception:
                     pass
                 return False
+
+            provider = understanding_provider(provider)
 
             persona_result = await DecisionAI.resolve_judgment_persona(
                 context=context,
@@ -901,7 +915,20 @@ class DecisionAI:
             if event.get_extra("_whale_battle_candidate", False):
                 dynamic_prompt += "\n[互动指向]本条是明确指向你的表情或短时连续接招；结合图意判断是否自然接招，不要仅因纯图就拒绝。若转向他人、认真求助或明确喊停，仍返回no。"
 
-            combined_system_prompt += "\n\n" + DecisionAI.PARTICIPATION_OUTPUT_PROMPT
+            # A neutral understanding task replaces persona and legacy yes/no-only instructions.
+            if extra_prompt:
+                dynamic_prompt += "\n【用户的参与偏好资料】\n" + extra_prompt
+            dynamic_prompt += f"\n[本轮机器人身份] 你的成员ID是{event.get_self_id()}；历史中这个ID的发言是你自己的上一答复。"
+            model_getter = getattr(provider, "get_model", None)
+            provider_config = getattr(provider, "provider_config", None) or getattr(provider, "config", {})
+            runtime_identity = {
+                "model":model_getter() if callable(model_getter) else provider_config.get("model", ""),
+                "persona_name":persona_result.get("persona_name", ""),
+                "boundary":"当前模型来源和角色名称用于理解指代；不据此假设其他客户端共享当前账号、会话记忆或历史行为。"}
+            dynamic_prompt += "\n[运行时身份资料] " + json.dumps(runtime_identity,ensure_ascii=False)
+            combined_system_prompt = PROTOCOL
+            if force_reply:
+                dynamic_prompt += "\n[明确触发]本轮已确定进入回复，请重点解析指代、意图和检索需求，不以普通插话概率拒绝。"
 
             # 调用AI,添加超时控制
             async def call_decision_ai():
@@ -916,7 +943,56 @@ class DecisionAI:
                 return response.completion_text
 
             # 使用用户配置的超时时间
+            deadline = asyncio.get_running_loop().time() + timeout
             ai_response = await asyncio.wait_for(call_decision_ai(), timeout=timeout)
+            available_context = formatted_message
+            understanding = parse_understanding(
+                AIResponseFilter.filter_thinking_chain(ai_response), available_context)
+            if understanding is None and (ai_response or "").lstrip().startswith("{"):
+                # A malformed structured result must not silently turn a live question into silence.
+                try:
+                    dynamic_prompt += "\n[格式校验]上一结果结构无效，请输出一个闭合且字段完整的JSON对象，understanding字段必须包含布尔检索标记和uncertain。"
+                    remaining = max(0.01, deadline - asyncio.get_running_loop().time())
+                    ai_response = await asyncio.wait_for(call_decision_ai(), remaining)
+                    understanding = parse_understanding(
+                        AIResponseFilter.filter_thinking_chain(ai_response), available_context)
+                except Exception as error:
+                    logger.warning("[会话理解] 格式重试未完成: %s",type(error).__name__)
+            if understanding and event.get_extra("_bilibili_focus") is not None:
+                understanding.update(needs_topic_lookup=False, needs_memory=False)
+            if understanding and (understanding["needs_topic_lookup"] or understanding["needs_memory"] or understanding["validation_errors"]):
+                try:
+                    remaining = max(0.01, deadline - asyncio.get_running_loop().time())
+                    retrieval_requested = understanding["needs_topic_lookup"] or understanding["needs_memory"]
+                    evidence, failures = await asyncio.wait_for(retrieve_evidence(
+                        context, event, understanding, image_description_cache), remaining) if retrieval_requested else ([], [])
+                    supplement = evidence_text(evidence, failures) if retrieval_requested else ""
+                    if understanding["validation_errors"]:
+                        supplement += "\n[依据校验未通过] " + json.dumps(understanding["validation_errors"]) + "；请按消息类型和发言身份重新选择ID。"
+                    available_context += "\n" + supplement
+                    dynamic_prompt += ("\n" + supplement +
+                        "\n根据新增依据核对并重新输出理解和参与结果；这是本轮唯一一次检索，"
+                        "仍缺依据时标记uncertain=true，不编造。")
+                    remaining = max(0.01, deadline - asyncio.get_running_loop().time())
+                    refined = await asyncio.wait_for(call_decision_ai(), remaining)
+                    refined_understanding = parse_understanding(
+                        AIResponseFilter.filter_thinking_chain(refined), available_context)
+                    if refined_understanding:
+                        ai_response, understanding = refined, refined_understanding
+                        if (retrieval_requested and not evidence) or failures:
+                            understanding["uncertain"] = True
+                    else:
+                        understanding["uncertain"] = True
+                except Exception as error:
+                    understanding["uncertain"] = True
+                    event.set_extra(EVIDENCE_KEY, event.get_extra(EVIDENCE_KEY) or [])
+                    event.set_extra(STATUS_KEY, {"failures":[type(error).__name__], "coverage":"检索或依据核对未完成"})
+                    logger.warning("[会话理解] 检索核对未完成: %s", type(error).__name__)
+            if understanding:
+                if event.get_extra("_bilibili_focus") is not None:
+                    understanding.update(needs_topic_lookup=False, needs_memory=False)
+                event.set_extra(UNDERSTANDING_KEY, understanding)
+                logger.info("[会话理解] " + json.dumps(understanding, ensure_ascii=False))
 
             # 🆕 统一解析协议：先过滤模型原生思考链，再提取自定义推理块，最后归一化 yes/no
             parse_result = AIResponseFilter.parse_decision_response(
@@ -941,15 +1017,17 @@ class DecisionAI:
             decision = DecisionAI._parse_decision(decision_answer or "")
             participation = DecisionAI._parse_participation(ai_response)
             if participation:
+                if force_reply and participation["mode"] == "skip":
+                    participation["mode"] = "direct"
                 decision = participation["mode"] != "skip"
-                if participation["anchor"] not in formatted_message:
+                if participation["anchor"] not in available_context:
                     participation["anchor"] = ""
                 addressee = participation["addressee"]
                 if addressee == str(event.get_self_id()):
                     participation["addressee"] = "bot"
                 elif addressee not in ("bot", "unknown") and (
-                    f"ID:{addressee}" not in formatted_message
-                    and f"ID: {addressee}" not in formatted_message
+                    f"ID:{addressee}" not in available_context
+                    and f"ID: {addressee}" not in available_context
                 ):
                     participation["addressee"] = "unknown"
             elif decision:
@@ -974,14 +1052,14 @@ class DecisionAI:
                 event._decision_ai_error = True
             except Exception:
                 pass
-            return False
+            return bool(force_reply)
         except Exception as e:
             logger.error(format_ai_error(e, "读空气判断"))
             try:
                 event._decision_ai_error = True
             except Exception:
                 pass
-            return False
+            return bool(force_reply)
 
     @staticmethod
     async def call_decision_ai(
@@ -1064,15 +1142,8 @@ class DecisionAI:
     def _parse_participation(ai_response: str) -> Optional[Dict[str, str]]:
         """读取决策结果中的简短对话指向；不把自由文本当成系统指令。"""
         cleaned = AIResponseFilter.filter_thinking_chain(ai_response or "")
-        for line in cleaned.splitlines():
-            if not line.strip().startswith("{"):
-                continue
-            try:
-                data = json.loads(line)
-            except (ValueError, TypeError):
-                continue
-            if not isinstance(data, dict) or data.get("mode") not in ("direct", "join", "skip"):
-                continue
+        data = protocol_object(cleaned)
+        if data:
             addressee = data.get("addressee", "unknown")
             anchor = data.get("anchor", "")
             return {

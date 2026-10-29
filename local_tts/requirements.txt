@@ -1,0 +1,5 @@
+# Use a separate environment; install a CUDA-enabled PyTorch for your hardware.
+qwen-tts==0.1.1
+gradio==6.17.3
+soundfile==0.14.0
+numpy>=2,<3

@@ -505,6 +505,9 @@ class ImageHandler:
         """
         if isinstance(component, Face):
             return f"[表情:{component.id}]"
+        elif type(component).__name__ == "Json":
+            from .bilibili_reader import card_links
+            return card_links(getattr(component, "data", ""))
         elif isinstance(component, At):
             return f"[At:{component.qq}]"
         elif isinstance(component, AtAll):

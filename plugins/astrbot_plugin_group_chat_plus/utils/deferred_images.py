@@ -10,6 +10,7 @@ import time
 from astrbot.api import logger
 from astrbot.core.utils.astrbot_path import get_astrbot_data_path
 from .image_handler import ImageHandler
+from .history_media import render_history_content
 
 _TOKEN = re.compile(r"\[图片内容: 尚未识别；图片索引=([0-9a-f]{64})\]")
 
@@ -106,6 +107,13 @@ async def resolve_unread_texts(owner, event, texts):
 
 
 async def resolve_unread_context(owner, event, chat_id, history):
+    from .context_manager import ContextManager
+
+    for msg in history:
+        if hasattr(msg, "history_content"):
+            msg.message_str = render_history_content(
+                msg.history_content, ContextManager._content_to_safe_text,
+                owner.image_description_cache)
     cached = owner.cache_manager.pending_messages_cache.get(chat_id, [])
     records = [row for row in cached if isinstance(row.get("content"), str)]
     messages = [msg for msg in history if isinstance(getattr(msg, "message_str", None), str)]

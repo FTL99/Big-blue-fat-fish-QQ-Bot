@@ -15,6 +15,7 @@ from astrbot.api.provider import ProviderRequest
 from astrbot.core.agent.message import TextPart
 
 from ..memory_scope import is_event_memory_allowed, resolve_memory_scope
+from ..passive_group_capture import is_plugin_enabled_for_session, is_session_enabled
 from ..utils import (
     OperationContext,
     format_memories_for_fake_tool_call,
@@ -83,6 +84,22 @@ class MemoryRecall:
         if timestamp > 100_000_000_000:
             timestamp /= 1000.0
         return timestamp if timestamp > 0 else None
+
+    async def search_for_understanding(self, event, query):
+        """Read-only retrieval; keep the normal allowlist, session and persona scopes."""
+        if not is_event_memory_allowed(self.config_manager, event) or not query.strip():
+            return []
+        if not await is_session_enabled(event.unified_msg_origin) or not await is_plugin_enabled_for_session(event.unified_msg_origin):
+            return []
+        top_k = self.config_manager.get("recall_engine.top_k", 5)
+        if top_k <= 0:
+            return []
+        persona_id = await get_persona_id(self.context, event)
+        use_persona = self.config_manager.filtering_settings.get("use_persona_filtering", True)
+        return await self.memory_engine.search_memories(
+            query=query, k=min(top_k, 5),
+            session_id=resolve_memory_scope(self.config_manager, event),
+            persona_id=persona_id if use_persona else None)
 
     async def handle_memory_recall(
         self, event: AstrMessageEvent, req: ProviderRequest
@@ -162,6 +179,11 @@ class MemoryRecall:
                     )
                     return
 
+                understanding = event.get_extra("_group_chat_plus_understanding")
+                if isinstance(understanding, dict) and understanding.get("needs_memory") is False:
+                    logger.info(f"[{session_id}] 本轮理解不需要长期记忆，跳过自动召回")
+                    return
+
                 if not actual_query:
                     logger.warning(f"[{session_id}] 原始用户消息为空，跳过记忆召回")
                     return
@@ -185,11 +207,13 @@ class MemoryRecall:
 
                 # 使用原始用户输入作为召回关键字
                 query_for_search = actual_query
+                if isinstance(understanding, dict) and understanding.get("memory_query"):
+                    query_for_search = understanding["memory_query"]
 
                 # 上下文扩展：拼接最近2轮对话作为查询，提升检索精准度
                 if self.config_manager.get(
                     "recall_engine.inject_with_recent_context", False
-                ):
+                ) and not isinstance(understanding, dict):
                     try:
                         recent_messages = (
                             await self.conversation_manager.get_context(
@@ -237,12 +261,16 @@ class MemoryRecall:
                     f"[{session_id}] 开始记忆召回，查询='{query_for_search[:80]}...'"
                 )
 
-                recalled_memories = await self.memory_engine.search_memories(
-                    query=query_for_search,
-                    k=self.config_manager.get("recall_engine.top_k", 5),
-                    session_id=recall_session_id,
-                    persona_id=recall_persona_id,
-                )
+                semantic_recall = event.get_extra("_group_chat_plus_semantic_memories")
+                if isinstance(semantic_recall, dict) and semantic_recall.get("query") == query_for_search:
+                    recalled_memories = semantic_recall["items"]
+                else:
+                    recalled_memories = await self.memory_engine.search_memories(
+                        query=query_for_search,
+                        k=self.config_manager.get("recall_engine.top_k", 5),
+                        session_id=recall_session_id,
+                        persona_id=recall_persona_id,
+                    )
 
                 if recalled_memories:
                     logger.info(

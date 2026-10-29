@@ -9,3 +9,6 @@ imageio-ffmpeg==0.6.0
 -r plugins/astrbot_plugin_group_chat_plus/requirements.txt
 -r plugins/astrbot_plugin_livingmemory/requirements.txt
 -r plugins/astrbot_plugin_meme_manager/requirements.txt
+
+psutil>=5.9
+qrcode[pil]>=7.4

@@ -70,7 +70,6 @@ v1.0.9 更新内容：
 - 添加戳一戳系统提示词，帮助AI正确理解戳一戳场景
 - 在保存历史时自动过滤戳一戳提示词
 """
-from .whale_settings import ADMIN
 
 import random
 import time
@@ -78,6 +77,7 @@ from datetime import datetime, timedelta, timezone
 import copy
 import sys
 import hashlib
+from .whale_settings import ADMIN
 import asyncio
 import json
 import os
@@ -3457,6 +3457,11 @@ class ChatPlus(Star):
             self._legacy_cooldown_migration_task = None
 
     async def initialize(self):
+        from .utils.bilibili_reader import BilibiliReader
+        self.context._group_chat_plus_bilibili_reader = BilibiliReader(
+            self.context, self.image_to_text_provider_id)
+        logger.info("[B站内容读取] 已启用：字幕/画面、评论/弹幕、明确触发先回执后后台读取；只读")
+        logger.info("[会话理解模块] 已启用：图文历史关联、中立推理、按需话题/长期记忆检索与来源校验")
         """
         🆕 v1.1.0: 插件激活时调用
 
@@ -5571,6 +5576,15 @@ class ChatPlus(Star):
                         f"仅对当前消息临时提升概率 +{at_all_transient_probability_boost:.2f}"
                     )
 
+        last_target = self._last_reply_targets.get(
+            ProbabilityManager.get_chat_key(platform_name, is_private, chat_id), {}
+        )
+        same_user_continuation = (
+            not is_private
+            and not is_emoji_message
+            and str(last_target.get("user_id", "")) == str(event.get_sender_id())
+            and 0 <= time.time() - last_target.get("timestamp", 0) <= 600
+        )
         if (
             not is_at_message
             and not has_trigger_keyword
@@ -5578,6 +5592,7 @@ class ChatPlus(Star):
             and not skip_probability_for_welcome
             and not skip_probability_for_at_all
             and not event.get_extra("_whale_battle_candidate", False)
+            and not same_user_continuation
         ):
             # 概率判断
             if self.debug_mode:
@@ -6580,6 +6595,7 @@ class ChatPlus(Star):
                 reasoning_end_marker=self.judgment_reasoning_end_marker,
                 include_persona=self.decision_ai_include_persona,
                 configured_persona_name=self.decision_ai_persona_name,
+                image_description_cache=self.image_description_cache,
             )
             # 🐛 修复：不要在这里删除缓存！
             # pre_decision 模式下，缓存的上下文（已植入记忆）需要在生成回复时使用
@@ -7189,7 +7205,7 @@ class ChatPlus(Star):
         # 注意：message_history_manager 和 conversation_manager 是两个不同的存储
         # - message_history_manager: 存储平台消息历史（platform_message_history 表）
         # - conversation_manager: 存储 LLM 对话历史（conversations 表）
-        if not (isinstance(max_context, int) and max_context == 0):
+        if not history_messages and not (isinstance(max_context, int) and max_context == 0):
             try:
                 cm = self.context.conversation_manager
                 if cm:
@@ -7802,6 +7818,7 @@ class ChatPlus(Star):
                 pending_cooldown_context=pending_cooldown_context,
                 single_at_message_context=single_at_message_context,
                 smart_batch_reply_hint=smart_batch_reply_hint,
+                image_description_cache=self.image_description_cache,
             )
         except Exception as e:
             ai_error_flag = True
@@ -9202,7 +9219,7 @@ class ChatPlus(Star):
             logger.warning(f"[等待窗口] 拦截消息时发生错误: {e}", exc_info=True)
             return False
 
-    async def _run_group_wait_window(self, chat_id: str, user_id: str) -> tuple:
+    async def _run_group_wait_window(self, chat_id: str, user_id: str, video_event=None) -> tuple:
         """
         启动并运行群聊等待窗口（⏳ v1.2.0）。
 
@@ -9264,6 +9281,9 @@ class ChatPlus(Star):
         # 轮询循环（100ms 间隔）
         _POLL_INTERVAL = 0.1
         try:
+            if video_event is not None:
+                from .utils.bilibili_reader import start_bilibili_read
+                await start_bilibili_read(self.context, video_event)
             while True:
                 await asyncio.sleep(_POLL_INTERVAL)
                 async with self._group_wait_window_lock:
@@ -9795,8 +9815,13 @@ class ChatPlus(Star):
             if _gww_recheck:
                 return
             _gww_extra_count, _gww_window_token = await self._run_group_wait_window(
-                chat_id, _gww_sender_id
+                chat_id, _gww_sender_id,
+                video_event=event if (is_at_message or has_trigger_keyword) else None,
             )
+
+        if is_at_message or has_trigger_keyword:
+            from .utils.bilibili_reader import start_bilibili_read
+            await start_bilibili_read(self.context, event)
 
         # 步骤3.5: 检测@提及信息（在图片处理之前，避免不必要的开销）
         # 已在概率判断前提前完成，避免重复检测
@@ -11644,6 +11669,8 @@ class ChatPlus(Star):
                     )
 
                 # 保存AI回复到官方存储（使用过滤后的内容）
+                from .utils.bilibili_reader import save_bilibili_preliminary
+                await save_bilibili_preliminary(self.context, event)
                 await ContextManager.save_bot_message(
                     event, bot_reply_to_save, self.context, skip_custom_storage=True
                 )

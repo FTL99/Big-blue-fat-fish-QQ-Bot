@@ -24,6 +24,7 @@ import time
 from datetime import datetime, timezone
 from ._session_guard import guard_session
 from .message_processor import MessageProcessor
+from .history_media import render_history_content, has_history_image
 
 # 导入 MessageCleaner（延迟导入以避免循环依赖）
 from typing import TYPE_CHECKING
@@ -230,6 +231,12 @@ class ContextManager:
             return ContextManager._content_to_safe_text(block.get("content")), False
 
         block_type = str(block.get("type", "") or "").lower()
+
+        if block_type == "json":
+            from .bilibili_reader import card_links
+            links = card_links(block.get("data", ""))
+            if links:
+                return links, False
 
         text_value = block.get("text")
         if text_value is not None:
@@ -939,9 +946,10 @@ class ContextManager:
 
             # 从 content 字段提取消息文本
             content = history_item.content
-            message_text = ContextManager._content_to_safe_text(content)
+            message_text = render_history_content(content, ContextManager._content_to_safe_text)
 
             msg.message_str = message_text
+            msg.history_content = content
             msg.platform_name = platform_name
 
             # 处理时间戳
@@ -1557,8 +1565,16 @@ class ContextManager:
                                 )
 
                     # 格式化消息（根据配置决定格式）
+                    message_content = message_content.replace("[消息ID:", "[正文消息ID:")
                     # 构建消息前缀部分
                     prefix_parts = []
+
+                    source_id = str(getattr(msg, "message_id", "") or "")
+                    if re.fullmatch(r"[\w.:-]{1,100}", source_id):
+                        prefix_parts.append(f"[消息ID:{source_id}]")
+                        kind = "图片" if has_history_image(getattr(msg, "history_content", None)) else "文字"
+                        prefix_parts.append(f"[消息类型:{kind}]")
+                        prefix_parts.append("[发言身份:机器人]" if is_bot else "[发言身份:用户]")
 
                     # 添加时间戳（如果启用，且不是bot自己的消息，避免AI模仿时间戳格式）
                     if include_timestamp and time_str and not is_bot:
@@ -1611,6 +1627,7 @@ class ContextManager:
             )
             formatted_parts.append("=" * 60)
             safe_current_message = ContextManager._content_to_safe_text(current_message)
+            safe_current_message = safe_current_message.replace("[消息ID:", "[正文消息ID:")
             formatted_parts.append(safe_current_message)
             formatted_parts.append("=" * 60)
             formatted_parts.append("")  # 额外空行，增强视觉隔离

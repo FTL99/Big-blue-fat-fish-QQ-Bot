@@ -24,3 +24,15 @@ __pycache__/
 api-key.txt
 *login*.local.json
 deploy_state.json
+
+# Local media, login state and test evidence
+tests/private/
+tests/results/
+artifacts/
+local_tts/.venv/
+local_tts/models/
+local_tts/cache/
+local_tts/temp/
+local_tts/outputs/
+local_tts/web.pid
+credential.json

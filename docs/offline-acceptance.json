@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "python_files_parsed": 217,
+  "python_files_parsed": 233,
   "sticker_hashes": 66,
   "checks": {
     "fresh_install_and_persona": true,

@@ -102,6 +102,10 @@ class EventHandler:
         """Query and inject long-term memory before LLM request"""
         await self._memory_recall.handle_memory_recall(event, req)
 
+    async def search_memory_for_understanding(self, event: AstrMessageEvent, query: str):
+        """Expose the same scoped recall for the conversational-understanding stage."""
+        return await self._memory_recall.search_for_understanding(event, query)
+
     async def handle_memory_reflection(
         self, event: AstrMessageEvent, resp: LLMResponse
     ):
